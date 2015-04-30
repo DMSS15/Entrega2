@@ -30,10 +30,21 @@ public class Intervencion implements Serializable{
     private int estado;
     private String descripcion;
     private Date actualizacion;
+ 
+    @ManyToMany (mappedBy="listaRecursos")
+    private List<Recurso> listaRecurso;  
+    
+    @ManyToOne
+    private Expediente expediente;
+   
+    @ManyToMany(mappedBy="listaTecnicos")
+    private List<Tecnico> listaTecnicos;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public List<Recurso> getListaRecurso() {
+        return listaRecurso;
     }
+
+ 
 
     public int getCodigo() {
         return codigo;
@@ -111,13 +122,27 @@ public class Intervencion implements Serializable{
     }
     
     
-     @ManyToMany (mappedBy= "recursoAintervencion")
-    private List<Recurso> usadoPORintervencion;
-     
-    @ManyToMany (mappedBy="tecnicoAintervencion")
-    private List<Recurso> usadoPORtecnico;  
-    
-    @ManyToOne
-    private Expediente expediente;
 
+    public void setListaRecurso(List<Recurso> listaRecurso) {
+        this.listaRecurso = listaRecurso;
+    }
+
+    public Expediente getExpediente() {
+        return expediente;
+    }
+
+    public void setExpediente(Expediente expediente) {
+        this.expediente = expediente;
+    }
+
+    public List<Tecnico> getListaTecnicos() {
+        return listaTecnicos;
+    }
+
+    public void setListaTecnicos(List<Tecnico> listaTecnicos) {
+        this.listaTecnicos = listaTecnicos;
+    }
+
+    
+    
 }

@@ -7,6 +7,7 @@ package JPA;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.sql.Time;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,8 +30,8 @@ public class Reunion implements Serializable {
     private Date fecha;
     private String tema;
     private String descripcion;
-    private Date horaInicio;
-    private Date horaFin;
+    private Time horaInicio;
+    private Time horaFin;
         
     //getters y setters
     
@@ -66,19 +67,19 @@ public class Reunion implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Date getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(Time horaInicio) {
         this.horaInicio = horaInicio;
     }
     
-    public Date getHoraFin() {
+    public Time getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(Date horaFin) {
+    public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
     }
 
@@ -111,6 +112,16 @@ public class Reunion implements Serializable {
     @JoinTable(name = "reu_tec",
             joinColumns = @JoinColumn(name = "tecnico_fk"),
             inverseJoinColumns = @JoinColumn(name= "reunion_fk"))
-    private List<Administrativo> tecnicoESTAreunion;
+    private List<Tecnico> tecnicoESTAreunion;
+
+    public List<Tecnico> getTecnicoESTAreunion() {
+        return tecnicoESTAreunion;
+    }
+
+    public void setTecnicoESTAreunion(List<Tecnico> tecnicoESTAreunion) {
+        this.tecnicoESTAreunion = tecnicoESTAreunion;
+    }
+    
+    
     
 }

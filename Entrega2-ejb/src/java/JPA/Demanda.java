@@ -109,4 +109,14 @@ public class Demanda implements Serializable {
     @ManyToOne
     private Ciudadano ciudadano;
 
+    public Ciudadano getCiudadano() {
+        return ciudadano;
+    }
+
+    public void setCiudadano(Ciudadano ciudadano) {
+        this.ciudadano = ciudadano;
+    }
+
+    
+    
 }

@@ -12,16 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author María y Salva
- */
-@Entity
 
-public class Administrador extends Usuario{
-     private static final long serialVersionUID = 1L;
-    
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@Entity
+public class Administrador extends Usuario {
+
+    private static final long serialVersionUID = 1L;
+
     private String despacho;
 
     public void setDespacho(String despacho) {
@@ -32,33 +28,12 @@ public class Administrador extends Usuario{
         return despacho;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.despacho);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Administrador other = (Administrador) obj;
-        if (!Objects.equals(this.despacho, other.despacho)) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
         return "Administrador{" + "despacho=" + despacho + '}';
     }
 
-    
-    
+    //equal y hascode eredado de Usuario
 }

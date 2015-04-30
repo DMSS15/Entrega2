@@ -18,21 +18,18 @@ import javax.persistence.OneToMany;
  *
  * @author María y Salva
  */
-
 @Entity
-public class JefeServicio extends Usuario{
-     private static final long serialVersionUID = 1L;
+public class JefeServicio extends Usuario {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    private static final long serialVersionUID = 1L;
+
     private String despacho;
     private String especialidad;
-    
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
-    
     public void setDespacho(String despacho) {
         this.despacho = despacho;
     }
@@ -44,37 +41,23 @@ public class JefeServicio extends Usuario{
     public String getEspecialidad() {
         return especialidad;
     }
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.despacho);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final JefeServicio other = (JefeServicio) obj;
-        if (!Objects.equals(this.despacho, other.despacho)) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
         return "JefeServicio{" + "despacho=" + despacho + '}';
     }
-    
+
     //Relación de Uno a Mucho
-    
-    @OneToMany (mappedBy="Tecnico")
+    @OneToMany(mappedBy = "Tecnico")
     private List<Tecnico> tecnicos;
-    
+
+    public List<Tecnico> getTecnicos() {
+        return tecnicos;
+    }
+
+    public void setTecnicos(List<Tecnico> tecnicos) {
+        this.tecnicos = tecnicos;
+    }
+
+     //equal y hascode eredado de Usuario
 }

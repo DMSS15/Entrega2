@@ -7,6 +7,7 @@ package JPA;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,19 +22,23 @@ import javax.persistence.TemporalType;
  */
 @Entity
 public class Cita implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
-    
+
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    private String hora;
+    @Temporal(TemporalType.DATE)
+    private Date hora;
     private Integer duracion;
     private String centro;
     private String municipio;
-    
-    //Faltan relaciones centro y municipio
+
+    //relaciones
+    @ManyToOne
+    private Ciudadano ciudadano;
 
     public Integer getCodigo() {
         return codigo;
@@ -51,11 +56,11 @@ public class Cita implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 
@@ -82,13 +87,59 @@ public class Cita implements Serializable {
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
     }
-    
-    
-    
-    //relaciones
-    
-    @ManyToOne
-    private Ciudadano ciudadano;
-    
+
+    public Ciudadano getCiudadano() {
+        return ciudadano;
+    }
+
+    public void setCiudadano(Ciudadano ciudadano) {
+        this.ciudadano = ciudadano;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.codigo);
+        hash = 79 * hash + Objects.hashCode(this.fecha);
+        hash = 79 * hash + Objects.hashCode(this.hora);
+        hash = 79 * hash + Objects.hashCode(this.duracion);
+        hash = 79 * hash + Objects.hashCode(this.centro);
+        hash = 79 * hash + Objects.hashCode(this.municipio);
+        hash = 79 * hash + Objects.hashCode(this.ciudadano);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cita other = (Cita) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.fecha, other.fecha)) {
+            return false;
+        }
+        if (!Objects.equals(this.hora, other.hora)) {
+            return false;
+        }
+        if (!Objects.equals(this.duracion, other.duracion)) {
+            return false;
+        }
+        if (!Objects.equals(this.centro, other.centro)) {
+            return false;
+        }
+        if (!Objects.equals(this.municipio, other.municipio)) {
+            return false;
+        }
+        if (!Objects.equals(this.ciudadano, other.ciudadano)) {
+            return false;
+        }
+        return true;
+    }
 
 }

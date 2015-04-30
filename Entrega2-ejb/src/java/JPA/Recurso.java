@@ -7,6 +7,7 @@ package JPA;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,7 +34,7 @@ public class Recurso implements Serializable{
         return serialVersionUID;
     }
 
-    public int getTipo() {
+    public Integer getTipo() {
         return tipo;
     }
 
@@ -58,5 +59,45 @@ public class Recurso implements Serializable{
             joinColumns = @JoinColumn(name = "recursos_fk"),
             inverseJoinColumns = @JoinColumn(name= "intervencion_fk"))
     private List<Intervencion> recursoAintervencion;
+
+    public List<Intervencion> getRecursoAintervencion() {
+        return recursoAintervencion;
+    }
+
+    public void setRecursoAintervencion(List<Intervencion> recursoAintervencion) {
+        this.recursoAintervencion = recursoAintervencion;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.tipo);
+        hash = 23 * hash + Objects.hashCode(this.descripcion);
+        hash = 23 * hash + Objects.hashCode(this.recursoAintervencion);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Recurso other = (Recurso) obj;
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.recursoAintervencion, other.recursoAintervencion)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
 }

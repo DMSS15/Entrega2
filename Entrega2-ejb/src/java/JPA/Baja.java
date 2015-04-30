@@ -89,4 +89,13 @@ public class Baja implements Serializable {
     //Relacion Muchos a uno entre Baja y Tecnico
     @ManyToOne
     private Baja baja;
+
+    public Baja getBaja() {
+        return baja;
+    }
+
+    public void setBaja(Baja baja) {
+        this.baja = baja;
+    }
+    
 }

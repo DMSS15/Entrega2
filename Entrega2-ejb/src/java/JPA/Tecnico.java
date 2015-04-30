@@ -23,9 +23,34 @@ import javax.persistence.ManyToMany;
 public class Tecnico extends Usuario{
      private static final long serialVersionUID = 1L;
    
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
     private String especialidad;
     private String despacho;
+    
+        //relacion uno a muchos entre Tecnico y Baja
+    
+    @OneToMany (mappedBy = "baja")
+    private List<Baja> baja;
+    
+    
+    @ManyToMany
+    @JoinTable(name = "tec_int",
+            joinColumns = @JoinColumn(name = "tecnico_fk"),
+            inverseJoinColumns = @JoinColumn(name= "intervencion_fk"))
+    private List<Intervencion> tecnicoAintervencion;
+    
+        
+    @ManyToOne
+    private JefeServicio jefeservicio;
+    
+
+    //Relación muchos a muchos entre Tecnico y Reunión
+    
+    @ManyToMany (mappedBy="tecnicoAreunion")
+    private List<Reunion> tecnicoESTAreunion;
+    
+    
+    //Getter y Setter
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
@@ -47,28 +72,41 @@ public class Tecnico extends Usuario{
     public String toString() {
         return "Tecnico{" + "especialidad=" + especialidad + '}';
     }
-    
-    @ManyToOne
-    private JefeServicio jefeservicio;
-    
-
-    //Relación muchos a muchos entre Tecnico y Reunión
-    
-    @ManyToMany (mappedBy="tecnicoAreunion")
-    private List<Reunion> tecnicoESTAreunion;
-    
-    //relacion uno a muchos entre Tecnico y Baja
-    
-    @OneToMany (mappedBy = "baja")
-    private List<Baja> baja;
-    
-    
-    @ManyToMany
-    @JoinTable(name = "tec_int",
-            joinColumns = @JoinColumn(name = "tecnico_fk"),
-            inverseJoinColumns = @JoinColumn(name= "intervencion_fk"))
-    private List<Intervencion> tecnicoAintervencion;
 
 
-    
+
+    public JefeServicio getJefeservicio() {
+        return jefeservicio;
+    }
+
+    public void setJefeservicio(JefeServicio jefeservicio) {
+        this.jefeservicio = jefeservicio;
+    }
+
+    public List<Reunion> getTecnicoESTAreunion() {
+        return tecnicoESTAreunion;
+    }
+
+    public void setTecnicoESTAreunion(List<Reunion> tecnicoESTAreunion) {
+        this.tecnicoESTAreunion = tecnicoESTAreunion;
+    }
+
+    public List<Baja> getBaja() {
+        return baja;
+    }
+
+    public void setBaja(List<Baja> baja) {
+        this.baja = baja;
+    }
+
+    public List<Intervencion> getTecnicoAintervencion() {
+        return tecnicoAintervencion;
+    }
+
+    public void setTecnicoAintervencion(List<Intervencion> tecnicoAintervencion) {
+        this.tecnicoAintervencion = tecnicoAintervencion;
+    }
+
+
+     //equal y hascode eredado de Usuario
 }

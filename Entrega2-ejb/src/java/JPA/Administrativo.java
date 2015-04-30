@@ -15,18 +15,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-/**
- *
- * @author María y Salva
- */
-
 @Entity
-
 public class Administrativo extends Usuario {
-      private static final long serialVersionUID = 1L;
-   
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private static final long serialVersionUID = 1L;
+
     private String despacho;
+
+    //Relacion muchos a muchos entre Ciudadano Adminsitrativo
+    @ManyToMany(mappedBy = "administativoAciudadano")
+    private List<Ciudadano> administrativoPORciudadano;
+
+    @Override
+    public String toString() {
+        return "Administrativo{" + "despacho=" + despacho + '}';
+    }
 
     public void setDespacho(String despacho) {
         this.despacho = despacho;
@@ -36,33 +39,14 @@ public class Administrativo extends Usuario {
         return despacho;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.despacho);
-        return hash;
+    public List<Ciudadano> getAdministrativoPORciudadano() {
+        return administrativoPORciudadano;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Administrativo other = (Administrativo) obj;
-        if (!Objects.equals(this.despacho, other.despacho)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Administrativo{" + "despacho=" + despacho + '}';
+    public void setAdministrativoPORciudadano(List<Ciudadano> administrativoPORciudadano) {
+        this.administrativoPORciudadano = administrativoPORciudadano;
     }
     
-    @ManyToMany (mappedBy="administativoAciudadano")
-    private List<Ciudadano> administrativoPORciudadano;
-  }
+     //equal y hascode eredado de Usuario
+
+}
