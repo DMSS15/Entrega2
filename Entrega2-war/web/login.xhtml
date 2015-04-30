@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Landing Page - Start Bootstrap Theme</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <!-- Custom CSS -->
+       <!-- <link href="resources/css/landing-page.css" rel="stylesheet"></link> -->
+        <link href="resources/css/login.css" rel="stylesheet"></link>
+        <!-- Custom Fonts -->
+        <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"></link>
+
+    </h:head>
+    <h:body>
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div class="container topnav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
+        <!-- Header -->
+        <c:choose>
+            <c:when test="#{empty controlAutorizacion.usuario}">
+                <a name="about"></a>
+                <div class="intro-header" >
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="intro-message">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        
+                                        <div class="wrap">
+                                            <p class="form-title">
+                                                Sign In</p>
+                                            <h:form class="login">
+                                                <h:inputText value="#{login.usuario}"/>
+                                                <h:inputText value="#{login.contrasenia}"/>
+                                                <h:commandButton value="Sign In" action="#{login.autenticar()}" />
+                                                <div class="remember-forgot">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" />
+                                                                    Remember Me
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 forgot-pass-content">
+                                                            <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.intro-header -->
+            </c:when>
+        </c:choose>
+        <!-- jQuery -->
+        <script src="resources/js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="resources/js/bootstrap.min.js"></script>
+
+    </h:body>
+</html>
+
