@@ -4,8 +4,7 @@
  */
 package autenticacion;
 
-import JPA.Usuario;
-import JPA.Administrador;
+import JPA.*;
 
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -39,6 +38,18 @@ public class ControlAutorizacion implements Serializable {
         if (isAdministrador()) {
             return "administrador.xhtml";
         }
+
+        if (isAdministrativo()) {
+            return "adminsitrativo.xhtml";
+        }
+
+        if (isCiudadano()) {
+            return "ciudadano.xhtml";
+        }
+        if (isTecnico()) {
+            return "tecnico.xhtml";
+        }
+
         return null;
     }
 
@@ -56,20 +67,20 @@ public class ControlAutorizacion implements Serializable {
     public ControlAutorizacion() {
     }
 
-    private boolean isAdministrador() {
+    public boolean isAdministrador() {
         return this.usuario instanceof Administrador;
     }
-/*
-    private boolean isAdministrativo() {
+
+    public boolean isAdministrativo() {
         return this.usuario instanceof Administrativo;
     }
 
-    private boolean isTecnico() {
+    public boolean isTecnico() {
         return this.usuario instanceof Tecnico;
     }
 
-    private boolean isCiudadano() {
+    public boolean isCiudadano() {
         return this.usuario instanceof Ciudadano;
     }
-*/
+
 }

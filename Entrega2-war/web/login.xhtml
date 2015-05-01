@@ -11,7 +11,7 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
 
         <!-- Custom CSS -->
-       <!-- <link href="resources/css/landing-page.css" rel="stylesheet"></link> -->
+        <link href="resources/css/landing-page.css" rel="stylesheet"></link> 
         <link href="resources/css/login.css" rel="stylesheet"></link>
         <!-- Custom Fonts -->
         <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
@@ -55,23 +55,24 @@
 
 
         <!-- Header -->
-        <c:choose>
-            <c:when test="#{empty controlAutorizacion.usuario}">
-                <a name="about"></a>
-                <div class="intro-header" >
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="intro-message">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        
-                                        <div class="wrap">
+
+        <a name="about"></a>
+        <div class="intro-header" >
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="wrap">
+                                    <c:choose>
+                                        <c:when test="#{empty controlAutorizacion.usuario}">
                                             <p class="form-title">
                                                 Sign In</p>
                                             <h:form class="login">
-                                                <h:inputText value="#{login.usuario}"/>
-                                                <h:inputText value="#{login.contrasenia}"/>
-                                                <h:commandButton value="Sign In" action="#{login.autenticar()}" />
+                                                <p:inputText value="#{login.usuario}"/>
+                                                <p:password  value="#{login.contrasenia}"/>
+                                                <h:commandButton value="Sign In" action="#{login.autenticar()}"  />
                                                 <div class="remember-forgot">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -88,16 +89,20 @@
                                                     </div>
                                                 </div>
                                             </h:form>
-                                        </div>
-                                    </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p>la sesion ya esta iniciada</p>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.intro-header -->
-            </c:when>
-        </c:choose>
+            </div>
+        </div>
+        <!-- /.intro-header -->
+
         <!-- jQuery -->
         <script src="resources/js/jquery.js"></script>
 

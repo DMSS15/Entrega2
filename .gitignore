@@ -3,3 +3,6 @@
 /Entrega2-war/build/
 /Entrega2-ejb/dist/
 /Entrega2-war/dist/
+/nbproject/private/
+/Entrega2-war/nbproject/private/
+/Entrega2-ejb/nbproject/private/

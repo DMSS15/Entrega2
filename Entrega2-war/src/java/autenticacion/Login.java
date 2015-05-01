@@ -5,6 +5,7 @@
 package autenticacion;
 
 import JPA.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
@@ -32,15 +33,7 @@ public class Login {
      * Creates a new instance of Login
      */
     public Login() {
-        usuarios = new ArrayList<Usuario>();
-        Usuario admin=new Administrador();
-        admin.setCodigo(1);
-        admin.setApellidos("Alcaide Gomez");
-        admin.setNombre("Juan Carlos");
-        admin.setDni("31000518Z");
-        admin.setPassword("admin");
-        usuarios.add(admin);
-        System.out.println("Funciona??");
+        inicializarUsuarios();
     }
 
     public String getUsuario() {
@@ -78,5 +71,26 @@ public class Login {
         FacesContext ctx = FacesContext.getCurrentInstance();
         ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "El usuario no se encuentra", "El usuario no se encuentra"));
         return null;
+    }
+    
+    
+    //-------Metodo para inicializar usuarios
+    private void inicializarUsuarios(){
+           usuarios = new ArrayList<Usuario>();
+        Administrador admin=new Administrador();
+        admin.setCodigo(1);
+        admin.setApellidos("Alcaide Gomez");
+        admin.setNombre("Juan Carlos");
+        admin.setDni("31000518Z");
+        admin.setPassword("admin");
+        admin.setCorreo("algojuca@alu.uma.es");
+        admin.setDireccion("Sebastian Garrido 54");
+        admin.setNacimiento(new Date(1991, 12, 29));
+        admin.setNacionalidad("España");
+        admin.setCentro("Centro");
+        admin.setSexo("Varon");
+        admin.setDespacho("301");
+        usuarios.add(admin);
+        
     }
 }
