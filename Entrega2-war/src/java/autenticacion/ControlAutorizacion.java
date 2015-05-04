@@ -49,6 +49,9 @@ public class ControlAutorizacion implements Serializable {
         if (isTecnico()) {
             return "tecnico.xhtml";
         }
+        if(isJefeServicio()){
+            return "jefeServicio.xhtml";
+        }
 
         return null;
     }
@@ -82,5 +85,7 @@ public class ControlAutorizacion implements Serializable {
     public boolean isCiudadano() {
         return this.usuario instanceof Ciudadano;
     }
-
+    public boolean isJefeServicio(){
+        return this.usuario instanceof JefeServicio;
+    }
 }

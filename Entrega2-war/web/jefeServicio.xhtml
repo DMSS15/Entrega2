@@ -13,7 +13,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Servicios Sociales - Administrador</title>
+        <title>Servicios Sociales - Jefe de Servicio</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
 
     <h:body>
         <c:choose>
-            <c:when test="#{controlAutorizacion.isAdministrador()}">
+            <c:when test="#{controlAutorizacion.isJefeServicio()}">
 
                     <div id="wrapper">
 
@@ -67,7 +67,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/> </strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 1...</p>
@@ -82,7 +82,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/></strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 2...</p>
@@ -97,7 +97,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/></strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 3...</p>
@@ -138,7 +138,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>   <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/> <h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -195,7 +195,7 @@
                             <!-- Page Heading -->
 
                             <div class="jumbotron">
-                                <h1>¡Bienvenido Administrador!</h1>
+                                <h1>¡Bienvenido Jefe de Servicio!</h1>
 
                                 <p>
 

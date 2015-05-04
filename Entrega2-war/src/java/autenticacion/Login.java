@@ -92,5 +92,22 @@ public class Login {
         admin.setDespacho("301");
         usuarios.add(admin);
         
+         JefeServicio js=new JefeServicio();
+        js.setCodigo(2);
+        js.setApellidos("Gutierrez Cazorla");
+        js.setNombre("Ruben");
+        js.setDni("75895329k");
+        js.setPassword("admin");
+        js.setCorreo("algojuca@alu.uma.es");
+        js.setDireccion("Sebastian Garrido 54");
+        js.setNacimiento(new Date(1991, 12, 29));
+        js.setNacionalidad("España");
+        js.setCentro("Centro");
+        js.setSexo("Varon");
+        js.setDespacho("301");
+        
+        usuarios.add(js);
+        
+        
     }
 }
