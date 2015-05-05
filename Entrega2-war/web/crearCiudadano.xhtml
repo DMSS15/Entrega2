@@ -169,7 +169,7 @@
                                 <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
                             </li>
                             <li>
-                                <a href="#">Actualizar Ciudadano</a>
+                                <a href="actualizarCiudadano.xhtml">Actualizar Ciudadano</a>
                             </li>
                         </ul>
                     </li>
@@ -220,17 +220,15 @@
              <div>
                  <!--Formulario-->
                      <form name="nuevoCiudadano" action="asuntossociales@malaga.es" method="post">
-                         <p>DNI <input type="text" name="dni"> </input></p>
-                         <p>Nombre <input type="text" name="nombre"> </input></p>
-                         <p>Apellidos <input type="text" name="apellidos"> </input></p>
-                         Fecha de nacimiento <input type="date" name="nacimiento"></input>
+                         
+                         <p>Nombre <input type="text" name="nombre"> </input>
+                          Apellidos <input type="text" name="apellidos"> </input></p>
+                         <p>DNI <input type="text" name="dni"> </input> Fecha de nacimiento <input type="date" name="nacimiento"></input></p>
                          <p> Mujer <input type="radio" name="sexo" value="mujer"> </input>
                              Hombre <input type="radio" name="sexo" value="hombre"> </input> </p>
-                         <p>Nacionalidad <input type="text" name="nacionalidad"> </input></p>
-                         <p>Direcci&oacute; <input type="text" name="direccion"> </input></p>
-                         <p>Correo <input type="text" name="correo"> </input></p>
-                         <p>Telef&oacute;no <input type="number" name="telefono"> </input></p>
-                         <p>Contrase&ntilde;a <input type="password" value="password"></input></p>
+                         <p>Nacionalidad <input type="text" name="nacionalidad"> </input> Direcci&oacute;n <input type="text" name="direccion"> </input></p>
+                         <p>Correo <input type="text" name="correo"> </input> Telef&oacute;no <input type="number" name="telefono"> </input></p>
+                         <p>Contrase&ntilde;a <input type="password" value="password"></input> Repita contrase&ntilde;a <input type="password" value="passwordrepetida"></input></p>
                          <p>Ocupaci&oacute;n <input type="text" name="ocupacion"> </input></p>
                          <p><a href="administrativo.xhtml"><button type="submit" value="enviar" class="btn btn-lg btn-primary">Enviar</button></a></p>
                          <p><button type="reset" class="btn btn-lg btn-danger" value="reset"> Reset</button> </p>

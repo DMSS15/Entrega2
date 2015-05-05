@@ -91,7 +91,11 @@
                                             </h:form>
                                         </c:when>
                                         <c:otherwise>
-                                            <p>la sesion ya esta iniciada</p>
+                                            <h:form>
+                                                <p>la sesion ya esta iniciada</p>
+                                                <h:commandButton value="Ir a mi pg" action="#{controlAutorizacion.home()}"  />
+                                                <h:commandButton value="Log Out" action="#{controlAutorizacion.logout()}" />
+                                            </h:form>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>

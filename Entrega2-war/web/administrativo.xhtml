@@ -165,17 +165,17 @@
                             <li>
                                 <a href="crearCiudadano.xhtml">Crear Ciudadano</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
                             </li>
                             <li>
-                                <a href="buscarCiudadano.xhtml">Actualizar Ciudadano</a>
+                                <a href="actualizarCiudadano.xhtml">Actualizar Ciudadano</a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
+                        <a href="citaPrevia.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
                     </li>
                     <li>
                         <a href="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
@@ -190,29 +190,38 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
+                
+                <div class="jumbotron">
+                    <h1>¡Bienvenido Administrativo!</h1>
+
+                    <p>
+
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            function makeArray() {
+                            for (i = 0; i<makeArray.arguments.length; i++)
+                            this[i + 1] = makeArray.arguments[i];}
+                            var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
+                            'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+                            var date = new Date();
+                            var day = date.getDate();
+                            var month = date.getMonth() + 1;
+                            var yy = date.getYear();
+                            var year = (yy < 1000) ? yy + 1900 : yy;
+                            document.write("Hoy es " + day + " de " + months[month] + " del " + year);
+                            //]]>
+                        </script>
+
+
+                    </p>
+                </div>
 
              <!-- Este es el div del cuerpo de la página -->
-                <div>
-                    <h1>Borrar ciudadano</h1>
-                    <div class="row">
-                        <div class="col-xs-2">
-                            
-
-                            <form role="form">
-                                <div class="form-group input-group">
-                                            <input type="text" class="form-control" placeholder="Dni" />
-                                            <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
-                                </div>
-                                <button type="submit" class="btn btn-lg btn-danger">Eliminar</button>
-                                <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
+             <div>
+             </div>
              <!-- Fin del div del cuerpo de la página -->
 
-            </div>
+             </div>
             <!-- /.container-fluid -->
 
             </div>

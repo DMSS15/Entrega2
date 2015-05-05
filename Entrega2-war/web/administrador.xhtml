@@ -67,7 +67,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/> </strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 1...</p>
@@ -82,7 +82,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/> </strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 2...</p>
@@ -97,7 +97,7 @@
                                                     <img class="media-object" src="http://placehold.it/50x50" alt="" />
                                                 </span>
                                                 <div class="media-body">
-                                                    <h5 class="media-heading"><strong>John Smith</strong>
+                                                    <h5 class="media-heading"><strong><h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/> </strong>
                                                     </h5>
                                                     <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
                                                     <p>Ejemplo 3...</p>
@@ -138,10 +138,10 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                                    <li >
+                                        <a href="#"><i class="fa fa-fw fa-user"></i> Perfil </a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-fw fa-envelope"></i> Correo</a>
@@ -166,19 +166,19 @@
                                     <ul id="demo" class="collapse">
                                         
                                         <li>
-                                            <a href="#">Crear Jefe de Servicio</a>
+                                            <a href="crearJefeServicio.html">Crear Jefe de Servicio</a>
                                         </li>
                                         <li>
-                                            <a href="#">Crear Administrativo</a>
+                                            <a href="crearAdministrativo.xhtml">Crear Administrativo</a>
                                         </li>
                                         <li>
-                                            <a href="#">Crear T&eacute;cnico</a>
+                                            <a href="crearTecnico.xhtml">Crear T&eacute;cnico</a>
                                         </li>
                                         <li>
-                                            <a href="#">Actualizar Usuario</a>
+                                            <a href="actualizarUsuario.xhtml">Actualizar Usuario</a>
                                         </li>
                                         <li>
-                                            <a href="#">Eliminar Usuario</a>
+                                            <a href="eliminarUsuario.xhtml">Eliminar Usuario</a>
                                         </li>
                                     </ul>
 
