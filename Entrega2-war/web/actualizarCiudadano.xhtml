@@ -149,7 +149,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesi&oacute;n</a>
                         </li>
                     </ul>
                 </li>
@@ -169,13 +169,13 @@
                                 <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
                             </li>
                             <li>
-                                <a href="buscarCiudadano.xhtml">Actualizar Ciudadano</a>
+                                <a href="actualizarCiudadano.xhtml">Actualizar Ciudadano</a>
                             </li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
+                        <a href="citaPrevia.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
                     </li>
                     <li>
                         <a href="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
@@ -193,7 +193,7 @@
 
              <!-- Este es el div del cuerpo de la página -->
                 <div>
-                    <h1>Borrar ciudadano</h1>
+                    <h1>Actualizar Ciudadano</h1>
                     <div class="row">
                         <div class="col-xs-2">
                             
@@ -203,12 +203,126 @@
                                             <input type="text" class="form-control" placeholder="Dni" />
                                             <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
                                 </div>
-                                <button type="submit" class="btn btn-lg btn-danger">Eliminar</button>
-                                <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
+                                <p>
+                                </p>
 
                             </form>
                         </div>
                     </div>
+
+
+                        <!-- div del formulario para actualizar -->
+                    
+
+                        <div class="row">
+                            <form role="form">
+                                <div class="col-lg-3">
+                                    
+
+                                    <div class="form-group ">
+                                        <label>DNI</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input class="form-control" readonly="readonly" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input class="form-control" readonly="readonly" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Fecha de nacimiento</label>
+                                        <input class="form-control" type="date" name="fecha" readonly="readonly" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sexo</label>
+                                        <div class="radio">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="Hombre" />Hombre
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="Mujer" />Mujer
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nacionalidad</label>
+                                        <input class="form-control" readonly="readonly" />
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Dirección</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                </div>
+                                <!-- Div class class="col-lg-3" -->
+
+                                <div class="col-lg-3">
+                                    
+
+                                    <div class="form-group ">
+                                        <label>Ocupación</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Email</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Teléfono fijo</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Teléfono móvil</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Contraseña</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label>Repite Contraseña</label>
+                                        <input class="form-control" readonly="readonly"/>
+                                    </div>
+
+                                    <br />
+                                    <br />
+
+                                    <div>
+                                        <button type="button" class="btn btn-lg btn-primary">Actualizar</button>
+                                        <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
+                                    </div>
+
+                                </div>
+                                <!-- Div class class="col-lg-3" -->
+
+                            </form>
+                        </div>
+                        <!-- Div class row -->
+
+                        
+
+                        
+
+                        
+
+                    
+
+                    
                 </div>
              <!-- Fin del div del cuerpo de la página -->
 
