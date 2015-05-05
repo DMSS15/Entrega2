@@ -124,7 +124,7 @@ public class Login {
         
         
          Administrativo a =new Administrativo();
-        a.setCodigo(3);
+        a.setCodigo(4);
         a.setApellidos("Fernández");
         a.setNombre("Salva");
         a.setDni("1234");
