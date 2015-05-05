@@ -109,5 +109,32 @@ public class Login {
         usuarios.add(js);
         
         
+        Ciudadano c =new Ciudadano();
+        c.setCodigo(3);
+        c.setApellidos("Moreno");
+        c.setNombre("Maria");
+        c.setDni("123");
+        c.setPassword("123");
+        c.setCorreo("magonmo92@alu.uma.es");
+        c.setDireccion("Sebastian Garrido 54");
+        c.setNacimiento(new Date(1992, 01, 12));
+        c.setNacionalidad("España");
+        c.setSexo("Mujer");
+        usuarios.add(c);
+        
+        
+         Administrativo a =new Administrativo();
+        a.setCodigo(3);
+        a.setApellidos("Fernández");
+        a.setNombre("Salva");
+        a.setDni("1234");
+        a.setPassword("1234");
+        a.setCorreo("safcf@alu.uma.es");
+        a.setDireccion("Sebastian Garrido 54");
+        a.setNacimiento(new Date(1991, 9, 29));
+        a.setNacionalidad("España");
+        a.setSexo("Hombre");
+        a.setCentro("Centro");
+        usuarios.add(a);
     }
 }
