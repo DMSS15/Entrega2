@@ -122,7 +122,7 @@ public class Login {
         c.setSexo("Mujer");
         usuarios.add(c);
         
-        
+        //--Administrativos--
          Administrativo a =new Administrativo();
         a.setCodigo(4);
         a.setApellidos("Fernández");
