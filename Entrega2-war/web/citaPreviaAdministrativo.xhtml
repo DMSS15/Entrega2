@@ -149,7 +149,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesi&oacute;n</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -163,7 +163,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="crearCiudadano.xhtml">Crear Ciudadano</a>
+                                <a href="#">Crear Ciudadano</a>
                             </li>
                             <li class="active">
                                 <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
@@ -175,7 +175,7 @@
                     </li>
 
                     <li>
-                        <a href="citaPreviaAdministrativo.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
+                        <a href="#"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
                     </li>
                     <li>
                         <a href="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
@@ -193,14 +193,14 @@
 
              <!-- Este es el div del cuerpo de la página -->
                 <div>
-                    <h1>Actualizar Ciudadano</h1>
+                    <h1>Solicitar Cita Previa</h1>
                     <div class="row">
                         <div class="col-xs-2">
                             
 
                             <form role="form">
                                 <div class="form-group input-group">
-                                            <input type="text" class="form-control" placeholder="Dni" />
+                                            <input type="text" class="form-control" placeholder="DNI del ciudadano" />
                                             <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
                                 </div>
                                 <p>
@@ -267,7 +267,6 @@
                                 <!-- Div class class="col-lg-3" -->
 
                                 <div class="col-lg-3">
-                                    
 
                                     <div class="form-group ">
                                         <label>Ocupación</label>
@@ -289,21 +288,22 @@
                                         <input class="form-control" readonly="readonly"/>
                                     </div>
 
+
                                     <div class="form-group ">
-                                        <label>Contraseña</label>
-                                        <input class="form-control" readonly="readonly"/>
+                                        <label>Fecha</label>
+                                        <input class="form-control" />
                                     </div>
 
                                     <div class="form-group ">
-                                        <label>Repite Contraseña</label>
-                                        <input class="form-control" readonly="readonly"/>
+                                        <label>Hora</label>
+                                        <input class="form-control" />
                                     </div>
 
                                     <br />
                                     <br />
 
                                     <div>
-                                        <button type="button" class="btn btn-lg btn-primary">Actualizar</button>
+                                        <button type="button" class="btn btn-lg btn-primary">Solicitar cita</button>
                                         <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
                                     </div>
 

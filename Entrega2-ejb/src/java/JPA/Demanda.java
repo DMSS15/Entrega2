@@ -28,6 +28,7 @@ public class Demanda implements Serializable {
     private Date fechaIni,fechaFin;
     
     private String titulo, estado, descripcion;
+    
 
     public Integer getCodigo() {
         return codigo;

@@ -14,10 +14,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-/**
- *
- * @author francis
- */
 @Named(value = "login")
 @RequestScoped
 public class Login {
@@ -136,5 +132,19 @@ public class Login {
         a.setSexo("Hombre");
         a.setCentro("Centro");
         usuarios.add(a);
+        
+        Administrativo ad =new Administrativo();
+        ad.setCodigo(5);
+        ad.setApellidos("Fernández");
+        ad.setNombre("John");
+        ad.setDni("12345");
+        ad.setPassword("12345");
+        ad.setCorreo("safcf@alu.uma.es");
+        ad.setDireccion("Sebastian Garrido 54");
+        ad.setNacimiento(new Date(1991, 9, 29));
+        ad.setNacionalidad("España");
+        ad.setSexo("Hombre");
+        ad.setCentro("Centro");
+        usuarios.add(ad);
     }
 }

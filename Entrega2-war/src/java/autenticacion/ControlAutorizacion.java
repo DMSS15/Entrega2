@@ -40,7 +40,7 @@ public class ControlAutorizacion implements Serializable {
         }
 
         if (isAdministrativo()) {
-            return "adminsitrativo.xhtml";
+            return "administrativo.xhtml";
         }
 
         if (isCiudadano()) {
@@ -60,7 +60,7 @@ public class ControlAutorizacion implements Serializable {
         // Destruye la sesión (y con ello, el ámbito de este bean)
         FacesContext ctx = FacesContext.getCurrentInstance();
         ctx.getExternalContext().invalidateSession();
-        usuario = null;
+        this.usuario = null;
         return "login.xhtml";
     }
 

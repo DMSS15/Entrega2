@@ -4,9 +4,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-
-<head>
-
+<
+<h:head>
+    <!--Vista ciudadano-->
     <!--<meta charset="utf-8" />-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,10 +34,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-</head>
+ </h:head>
 
-<body>
-
+    <h:body>
+        <c:choose>
+            <c:when test="#{controlAutorizacion.isCiudadano()}">
+    
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -55,132 +57,53 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 1...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 2...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 3...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Leer Todos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-default">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-primary">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-success">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-info">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-warning">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-danger">Alerta</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">Ver Todas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Correo</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Opciones</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesi&oacute;n</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                        
+                            
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <h:form>
+                                    <li >
+                                        <h:commandLink action="perfilAdministrativo.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                    </li>
+                                   
+                                    <li class="divider"></li>
+                                    <li>
+                                        <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
+                                    </li>
+                                    </h:form>
+                                </ul>
+                            </li>
+                        </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-
+                    <h:form>
                     <!-- Acciones que pueden realizar los ciudadanos -->
                     <!-- Gestion Cita Previa -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
+                            
                             <li>
-                                <a href="#">Solicitar Cita</a>
+                                <h:commandLink action="citaPreviaCiudadano.xhtml">Solicitar Cita</h:commandLink>
                             </li>
                             <li>
-                                <a href="#">Mis Citas</a>
+                                <h:commandLink action="misCitas.xhtml">Mis Citas</h:commandLink>
                             </li>
                         </ul>
                     </li>
 
                     <!-- Comprobar expedientes del ciudadano -->
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Mis expedientes</a>
+                        <h:commandLink action="misExpedientes.xhtml"><i class="fa fa-fw fa-table"></i> Mis expedientes</h:commandLink>
                     </li>
                     
                     <!-- Creacion de una nueva demanda -->
                     <li>
-                        <a href="crearDemandaCiudadano.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
+                        <h:commandLink action="crearDemandaCiudadano.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
                     </li>
+                    </h:form>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -222,11 +145,11 @@
              <div>
                  <!--Formulario-->
                      <form name="demanda" action="asuntossociales@malaga.es" method="post">
-                         <p>Titulo: <input type="text" name="tituloDemanda"> <BR></BR></input></p>
+                         <p>Titulo: <h:inputText value="#{dem.titulo}" > <BR></BR></h:inputText></p>
                          <p>Descripci&oacute;n:</p>
-                         <p> <textarea name="descripcionDemanda" cols="50" rows="10"></textarea></p>
-                         <p><button type="submit" value="enviar" class="btn btn-lg btn-primary">Enviar</button></p>
-                        <p><a href="ciudadano.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a></p>
+                         <p> <h:inputText value="#{dem.descripcion}" ></h:inputText></p>
+                         <p><h:commandButton type="submit" value="#{dem.anadirDemanda()}" class="btn btn-lg btn-primary">Enviar</h:commandButton></p>
+                         <p><h:commandLink value="ciudadano.xhtml"><h:commandButton type="button" class="btn btn-lg btn-warning">Cancelar</h:commandButton></h:commandLink>></p>
                      </form>
              </div>
              <!-- Fin del div del cuerpo de la página -->
@@ -251,6 +174,9 @@
     <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
     <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
 
-</body>
+
+    </c:when>
+        </c:choose>
+    </h:body>
 
 </html>
