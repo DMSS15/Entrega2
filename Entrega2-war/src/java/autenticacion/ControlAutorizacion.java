@@ -9,6 +9,7 @@ import JPA.*;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 /**
@@ -16,6 +17,7 @@ import javax.faces.context.FacesContext;
  * @author Juan Carlos
  */
 @Named(value = "controlAutorizacion")
+@ManagedBean
 @SessionScoped
 public class ControlAutorizacion implements Serializable {
 
@@ -60,7 +62,7 @@ public class ControlAutorizacion implements Serializable {
         // Destruye la sesión (y con ello, el ámbito de este bean)
         FacesContext ctx = FacesContext.getCurrentInstance();
         ctx.getExternalContext().invalidateSession();
-        this.usuario = null;
+        usuario = null;
         return "login.xhtml";
     }
 
@@ -88,4 +90,10 @@ public class ControlAutorizacion implements Serializable {
     public boolean isJefeServicio(){
         return this.usuario instanceof JefeServicio;
     }
+    
+    public boolean isTrabajador(){
+        return (isAdministrador() || isAdministrativo() || isTecnico() || isJefeServicio());
+    }
+            
+    
 }

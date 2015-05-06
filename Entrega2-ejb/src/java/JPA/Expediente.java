@@ -102,7 +102,8 @@ public class Expediente implements Serializable {
      //Relacion de uno a muchos entre expediente e intervencion
     @OneToMany (mappedBy = "expediente")
     private List<Intervencion> intervencion;
-
+    
+    
     public Ciudadano getCiudadano() {
         return ciudadano;
     }

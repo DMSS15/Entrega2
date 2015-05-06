@@ -14,7 +14,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Servicios Sociales - Jefe de Servicio</title>
+        <title>Servicios Sociales - Tecnico</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
 
     <h:body>
         <c:choose>
-            <c:when test="#{controlAutorizacion.jefeServicio}">
+            <c:when test="#{controlAutorizacion.isTecnico()}">
 
                 <div id="wrapper">
 
@@ -54,13 +54,14 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="jefeServicio.xhtml">Tecnico</a>
+                            <a class="navbar-brand" href="tecnico.xhtml">Tecnico</a>
                         </div>
                         <!-- Top Menu Items -->
                         <ul class="nav navbar-right top-nav">
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
+
                                 <ul class="dropdown-menu">
                                     <h:form>
                                         <li >
@@ -73,6 +74,7 @@
                                         </li>
                                     </h:form>
                                 </ul>
+
                             </li>
                         </ul>
                         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -82,7 +84,12 @@
 
                                     <!-- Gestion de usuarios -->
                                     <li>
-                                        <h:commandLink  action="asignarDemandasAtecnicos.xhtml" ><i class="fa fa-fw fa-edit"></i> Asignar demanda</h:commandLink>
+                                        <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
+
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
+
                                     </li>
 
                                 </ul>
@@ -98,12 +105,55 @@
                             <!-- Page Heading -->
 
                             <div class="jumbotron">
-                                <h1>¡Bienvenido Jefe de Servicio!</h1>
+                                <h1>¡Ver Ciudadanos!</h1>
+
+                                <p>
+
+                                    <script type="text/javascript">
+                                        //<![CDATA[
+                                        function makeArray() {
+                                            for (i = 0; i < makeArray.arguments.length; i++)
+                                                this[i + 1] = makeArray.arguments[i];
+                                        }
+                                        var months = new makeArray('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+                                                'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
+                                        var date = new Date();
+                                        var day = date.getDate();
+                                        var month = date.getMonth() + 1;
+                                        var yy = date.getYear();
+                                        var year = (yy < 1000) ? yy + 1900 : yy;
+                                        document.write("Hoy es " + day + " de " + months[month] + " del " + year);
+                                        //]]>
+                                    </script>
+
+
+                                </p>
                             </div>
 
                             <!-- Este es el div del cuerpo de la página -->
                             <div>
-                               
+                                <h:form>
+
+
+                                    <p:dataTable emptyMessage="No hay tecnico" id="eventsDTi" var="c" value="#{verCiudadanos.ciudadanos}"  rowKey="tec.codigo" scrollable="true" scrollHeight="150">
+
+                                        <f:facet name="header">
+                                            Ciudadanos
+                                        </f:facet>
+                                        <p:column headerText="DNI ">
+                                            <h:outputText value="#{c.dni}" />
+                                        </p:column>
+                                        <p:column headerText="Nombre Profesional">
+                                            <h:outputText value="#{c.nombre}" />
+                                        </p:column>
+                                        <p:column headerText="Apellidos Profesional">
+                                            <h:outputText value="#{c.apellidos}" />
+                                        </p:column>
+
+                                    </p:dataTable>
+                                    <br/>
+                                    <p:commandButton value="Actualizar" update="eventsDTi" />
+                                </h:form>
                             </div>
                             <!-- Fin del div del cuerpo de la página -->
 

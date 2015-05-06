@@ -50,6 +50,10 @@ public class Tecnico extends Usuario{
     private List<Reunion> tecnicoESTAreunion;
     
     
+    //demanda--------------------------------------------------------------------------
+    @OneToMany (mappedBy = "tecnico")
+    private List<Demanda> demanda;
+    
     //Getter y Setter
 
     public void setEspecialidad(String especialidad) {
@@ -58,6 +62,14 @@ public class Tecnico extends Usuario{
 
     public void setDespacho(String despacho) {
         this.despacho = despacho;
+    }
+
+    public List<Demanda> getDemanda() {
+        return demanda;
+    }
+
+    public void setDemanda(List<Demanda> demanda) {
+        this.demanda = demanda;
     }
 
     public String getEspecialidad() {

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,7 +29,6 @@ public class Demanda implements Serializable {
     private Date fechaIni,fechaFin;
     
     private String titulo, estado, descripcion;
-    
 
     public Integer getCodigo() {
         return codigo;
@@ -118,6 +118,15 @@ public class Demanda implements Serializable {
         this.ciudadano = ciudadano;
     }
 
-    
+    @OneToMany
+    private Tecnico tecnico;
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
     
 }

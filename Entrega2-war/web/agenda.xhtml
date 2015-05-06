@@ -14,7 +14,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Servicios Sociales - Jefe de Servicio</title>
+        <title>Servicios Sociales - Tecnico: Agenda</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
 
     <h:body>
         <c:choose>
-            <c:when test="#{controlAutorizacion.jefeServicio}">
+            <c:when test="#{controlAutorizacion.isTecnico()}">
 
                 <div id="wrapper">
 
@@ -54,7 +54,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="jefeServicio.xhtml">Tecnico</a>
+                            <a class="navbar-brand" href="tecnico.xhtml">Tecnico</a>
                         </div>
                         <!-- Top Menu Items -->
                         <ul class="nav navbar-right top-nav">
@@ -64,7 +64,7 @@
                                 <ul class="dropdown-menu">
                                     <h:form>
                                         <li >
-                                            <h:commandLink action="perfil.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                            <h:commandLink action="perfilTec.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
                                         </li>
 
                                         <li class="divider"></li>
@@ -77,12 +77,17 @@
                         </ul>
                         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <h:form>
+                           <h:form>
                                 <ul class="nav navbar-nav side-nav">
 
                                     <!-- Gestion de usuarios -->
                                     <li>
-                                        <h:commandLink  action="asignarDemandasAtecnicos.xhtml" ><i class="fa fa-fw fa-edit"></i> Asignar demanda</h:commandLink>
+                                        <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
+
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
+
                                     </li>
 
                                 </ul>
@@ -98,7 +103,9 @@
                             <!-- Page Heading -->
 
                             <div class="jumbotron">
-                                <h1>¡Bienvenido Jefe de Servicio!</h1>
+                                <h1>Mi agenda</h1>
+
+
                             </div>
 
                             <!-- Este es el div del cuerpo de la página -->

@@ -11,11 +11,15 @@ import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+
 @Named(value = "login")
-@RequestScoped
+@ManagedBean
+@SessionScoped
 public class Login {
 
     private String usuario;
@@ -24,6 +28,8 @@ public class Login {
     
     @Inject
     private ControlAutorizacion ctrl;
+    @Inject
+    private controladorPerfil perf;
 
     /**
      * Creates a new instance of Login
@@ -54,6 +60,9 @@ public class Login {
                 if (u.getPassword().equals(contrasenia)) {
                     // Va a una u otra dependiendo del rol
                     ctrl.setUsuario(u);
+                    if(ctrl.isTrabajador()){
+                        perf.setUsuario(u);
+                    }
                     return ctrl.home();
                 } else {
                     // Falló la contraseña
@@ -133,18 +142,24 @@ public class Login {
         a.setCentro("Centro");
         usuarios.add(a);
         
-        Administrativo ad =new Administrativo();
-        ad.setCodigo(5);
-        ad.setApellidos("Fernández");
-        ad.setNombre("John");
-        ad.setDni("12345");
-        ad.setPassword("12345");
-        ad.setCorreo("safcf@alu.uma.es");
-        ad.setDireccion("Sebastian Garrido 54");
-        ad.setNacimiento(new Date(1991, 9, 29));
-        ad.setNacionalidad("España");
-        ad.setSexo("Hombre");
-        ad.setCentro("Centro");
-        usuarios.add(ad);
+         Tecnico tec=new Tecnico();
+        tec.setCodigo(5);
+        tec.setApellidos("Alcaide Gomez");
+        tec.setNombre("Juan Carlos");
+        tec.setDni("tecnico");
+        tec.setPassword("tecnico");
+        tec.setCorreo("algojuca@alu.uma.es");
+        tec.setDireccion("Sebastian Garrido 54");
+        tec.setNacimiento(new Date(1991, 12, 29));
+        tec.setNacionalidad("España");
+        tec.setCentro("Centro");
+        tec.setSexo("Varon");
+        tec.setDespacho("301");
+        tec.setTelefono("664671040");
+        tec.setEspecialidad("Maltrato");
+        tec.setTfijo(957375546);
+        
+        usuarios.add(tec);
+        
     }
 }

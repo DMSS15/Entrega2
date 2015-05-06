@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+
+        <!--<meta charset="utf-8" />-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>Servicios Sociales - Mi perfil</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link href="resources/plantilla/css/sb-admin.css" rel="stylesheet" />
+
+        <!-- Morris Charts CSS -->
+        <link href="resources/plantilla/css/plugins/morris.css" rel="stylesheet" />
+
+        <!-- Custom Fonts -->
+        <link href="resources/plantilla/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </h:head>
+
+    <h:body>
+        <c:choose>
+            <c:when test="#{not empty controlAutorizacion.usuario}">
+
+                <div id="wrapper">
+
+                    <!-- Navigation -->
+                    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form><h:commandLink action="#{controlAutorizacion.home()}" class="navbar-brand" >Mi perfil</h:commandLink></h:form>
+                        </div>
+                        <!-- Top Menu Items -->
+                        <ul class="nav navbar-right top-nav">
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <h:form>
+                                        <li >
+                                            <h:commandLink action="perfilTec.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                        </li>
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
+                                        </li>
+                                    </h:form>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+                        <!-- /.navbar-collapse -->
+                    </nav>
+
+                    <div id="page-wrapper">
+
+                        <div class="container-fluid">
+
+                            <!-- Page Heading -->
+
+                            <div class="jumbotron">
+                                <h1>Mi perfil</h1>
+                                <p>Para modificar tus datos haz clic sobre el dato</p>
+
+
+                            </div>
+
+                            <!-- Este es el div del cuerpo de la página -->
+                            <div>
+                                <h:form>
+                                    <h:panelGrid columns="2" columnClasses="column" cellpadding="10" >
+                                        <h:outputLabel for="ajax" value="DNI:" />
+                                        <p:inplace id="ajax1" editor="false">
+                                            <h:outputText value="#{controladorPerfil.dni}"  />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Nombre:" />
+                                        <p:inplace id="ajax2" editor="true">
+                                            <p:inputText value="#{controladorPerfil.nombre}" required="true" label="text" />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Apellidos:" />
+                                        <p:inplace id="ajax3" editor="true">
+                                            <p:inputText value="#{controladorPerfil.apellidos}" required="true" label="text" />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Fecha Nacimiento:" />
+                                        <p:inplace id="ajax4" editor="false">
+                                            <h:outputText value="#{controladorPerfil.nacimiento}"  />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Nacionalidad:" />
+                                        <p:inplace id="ajax5" editor="true">
+                                            <p:inputText value="#{controladorPerfil.nacionalidad}" required="true" label="text" />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Sexo: " />
+                                        <p:inplace id="ajax6" editor="true">
+                                            <p:inputText value="#{controladorPerfil.sexo}" required="true" label="text" />
+                                        </p:inplace>
+
+                                        <h:outputLabel for="ajax" value="Telefono: " />
+                                        <p:inplace id="ajax7" editor="true">
+                                            <p:inputText value="#{controladorPerfil.telefono}" required="true" label="text" />
+                                        </p:inplace>
+
+                                        <h:outputLabel for="ajax" value="Centro " />
+                                        <p:inplace id="ajax9" editor="true">
+                                            <p:inputText value="#{controladorPerfil.centro}" required="true" label="text" />
+                                        </p:inplace>
+                                        <h:outputLabel for="ajax" value="Telefono fijo: " />
+                                        <p:inplace id="ajax10" editor="true">
+                                            <p:inputText value="#{controladorPerfil.telefonoFijo}" required="true" label="text" />
+                                        </p:inplace>
+
+                                        <c:if test="#{controlAutorizacion.tecnico}">
+
+
+                                            <h:outputLabel for="ajax" value="Especialidad:" />
+                                            <p:inplace id="ajax11" editor="true">
+                                                <p:inputText value="#{controladorPerfil.especialidad}" required="true" label="text" />
+                                            </p:inplace>
+
+
+
+                                        </c:if>
+                                        <c:if test="#{controlAutorizacion.administrador} ">
+
+                                            <h:outputLabel for="ajax" value="Despacho : " />
+                                            <p:inplace id="ajax12" editor="true">
+                                                <p:inputText value="#{controladorPerfil.despachoAdmin}" required="true" label="text" />
+                                            </p:inplace>
+
+                                        </c:if>
+                                        <c:if test="#{controlAutorizacion.jefeServicio} ">
+
+                                            <h:outputLabel for="ajax" value="Despacho : " />
+                                            <p:inplace id="ajax13" editor="true">
+                                                <p:inputText value="#{controladorPerfil.despachoJS}" required="true" label="text" />
+                                            </p:inplace>
+
+                                        </c:if>
+                                        <c:if test="#{controlAutorizacion.administrativo} ">
+
+                                            <h:outputLabel for="ajax" value="Despacho : " />
+                                            <p:inplace id="ajax14" editor="true">
+                                                <p:inputText value="#{controladorPerfil.despachoAdministrativo}" required="true" label="text" />
+                                            </p:inplace>
+
+                                        </c:if>
+
+
+                                    </h:panelGrid>
+                                </h:form>
+                            </div>
+                            <!-- Fin del div del cuerpo de la página -->
+
+                        </div>
+                        <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- /#page-wrapper -->
+
+                </div>
+                <!-- /#wrapper -->
+
+                <!-- jQuery -->
+                <script src="resources/plantilla/js/jquery.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="resources/plantilla/js/bootstrap.min.js"></script>
+
+                <!-- Morris Charts JavaScript -->
+                <script src="resources/plantilla/js/plugins/morris/raphael.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
+            </c:when>
+        </c:choose>
+    </h:body>
+
+</html>

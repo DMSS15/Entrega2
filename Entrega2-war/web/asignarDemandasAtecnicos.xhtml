@@ -54,7 +54,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="jefeServicio.xhtml">Tecnico</a>
+                            <link class="navbar-brand" href="jefeServicio.xhtml">Jefe de Servicio</link>
                         </div>
                         <!-- Top Menu Items -->
                         <ul class="nav navbar-right top-nav">
@@ -64,7 +64,7 @@
                                 <ul class="dropdown-menu">
                                     <h:form>
                                         <li >
-                                            <h:commandLink action="perfil.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                            <h:commandLink action="perfilTrabajador.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
                                         </li>
 
                                         <li class="divider"></li>
@@ -98,12 +98,55 @@
                             <!-- Page Heading -->
 
                             <div class="jumbotron">
-                                <h1>¡Bienvenido Jefe de Servicio!</h1>
+                                <h3>¡Asignar demandas!</h3>
                             </div>
 
                             <!-- Este es el div del cuerpo de la página -->
                             <div>
-                               
+                                <h:form>
+                                    <p:dataTable emptyMessage="No hay demandas" id="eventsDT" var="dem" value="#{demandas.demanda}" selectionMode="single" selection="#{demandas.demdelect}" rowKey="dem.codigo" scrollable="true" scrollHeight="150">
+
+
+                                        <f:facet name="header">
+                                            Selecciona Demanda
+                                        </f:facet>
+
+                                        <p:column headerText="Demanda">
+                                            <h:outputText value="#{dem.codigo}" />
+                                        </p:column>
+                                        <p:column headerText="DNI Ciudadano">
+                                            <h:outputText value="#{dem.ciudadano.dni}" />
+                                        </p:column>
+                                        <p:column headerText="Nombre Ciudadano">
+                                            <h:outputText value="#{dem.ciudadano.nombre}" />
+                                        </p:column>
+                                        <p:column headerText="Apellidos Ciudadano">
+                                            <h:outputText value="#{dem.ciudadano.apellidos}" />
+                                        </p:column>
+                                    </p:dataTable>
+                                    <br/>
+
+                                    <p:dataTable  emptyMessage="No hay tecnico" id="eventsDTi" var="tec" value="#{demandas.tecnico}" selectionMode="single"  selection="#{demandas.tecselect}" rowKey="tec.codigo" scrollable="true" scrollHeight="150">
+
+                                        <f:facet name="header">
+                                            Selecciona Tecnico
+                                        </f:facet>
+                                        <p:column headerText="DNI Profesional">
+                                            <h:outputText value="#{tec.dni}" />
+                                        </p:column>
+                                        <p:column headerText="Nombre Profesional">
+                                            <h:outputText value="#{tec.nombre}" />
+                                        </p:column>
+                                        <p:column headerText="Apellidos Profesional">
+                                            <h:outputText value="#{tec.apellidos}" />
+                                        </p:column>
+
+                                    </p:dataTable>
+                                    <br/>
+
+
+                                    <p:commandButton value="Asignar" update="eventsDTi,eventsDT" action="#{demandas.asociar()}"/>
+                                </h:form>
                             </div>
                             <!-- Fin del div del cuerpo de la página -->
 
