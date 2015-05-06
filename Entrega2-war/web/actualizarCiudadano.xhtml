@@ -5,347 +5,279 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-<head>
+    <h:head>
 
-    <!--<meta charset="utf-8" />-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+        <!--<meta charset="utf-8" />-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
 
-    <title>Servicios Sociales - Administrativo</title>
+        <title>Servicios Sociales - Administrativo</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Bootstrap Core CSS -->
+        <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <link href="resources/plantilla/css/sb-admin.css" rel="stylesheet" />
+        <!-- Custom CSS -->
+        <link href="resources/plantilla/css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="resources/plantilla/css/plugins/morris.css" rel="stylesheet" />
+        <!-- Morris Charts CSS -->
+        <link href="resources/plantilla/css/plugins/morris.css" rel="stylesheet" />
 
-    <!-- Custom Fonts -->
-    <link href="resources/plantilla/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Custom Fonts -->
+        <link href="resources/plantilla/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-</head>
+    </h:head>
 
-<body>
+    <h:body>
+        <c:choose>
+            <c:when test="#{controlAutorizacion.isAdministrativo()}">
 
-    <div id="wrapper">
+                <div id="wrapper">
 
-        <!-- Navigation -->
-        <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Administrativo</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 1...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 2...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 3...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Leer Todos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-default">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-primary">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-success">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-info">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-warning">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-danger">Alerta</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">Ver Todas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Correo</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Opciones</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesi&oacute;n</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-
-                    <!-- Gestion de ciudadanos -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="crearCiudadano.xhtml">Crear Ciudadano</a>
-                            </li>
-                            <li class="active">
-                                <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
-                            </li>
-                            <li>
-                                <a href="actualizarCiudadano.xhtml">Actualizar Ciudadano</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="citaPreviaAdministrativo.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
-                    </li>
-                    <li>
-                        <a href="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-
-             <!-- Este es el div del cuerpo de la página -->
-                <div>
-                    <h1>Actualizar Ciudadano</h1>
-                    <div class="row">
-                        <div class="col-xs-2">
-                            
-
-                            <form role="form">
-                                <div class="form-group input-group">
-                                            <input type="text" class="form-control" placeholder="Dni" />
-                                            <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
-                                </div>
-                                <p>
-                                </p>
-
-                            </form>
+                    <!-- Navigation -->
+                    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form><h:commandLink class="navbar-brand" action="administrativo.xhtml">Administrativo</h:commandLink></h:form>
                         </div>
+                        <!-- Top Menu Items -->
+                        <h:form><ul class="nav navbar-right top-nav">
+
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li >
+                                            <h:commandLink action="perfil.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                        </li>
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+
+
+                            </ul>
+                        </h:form>
+                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <h:form>
+                                <ul class="nav navbar-nav side-nav">
+
+                                    <!-- Gestion de ciudadanos -->
+                                    <li>
+                                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
+                                        <ul id="demo" class="collapse">
+
+                                            <li>
+                                                <h:commandLink action="crearCiudadano.xhtml">Crear Ciudadano</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="eliminarCiudadano.xhtml">Borrar Ciudadano</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="actualizarCiudadano.xhtml">Actualizar Ciudadano</h:commandLink>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <h:commandLink action="citaPreviaAdministrativo.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</h:commandLink>
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
+                                    </li>
+
+
+                                </ul>
+                            </h:form>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+
+                    <div id="page-wrapper">
+
+                        <div class="container-fluid">
+
+                            <!-- Page Heading -->
+
+                            <!-- Este es el div del cuerpo de la página -->
+                            <div>
+                                <h1>Actualizar Ciudadano</h1>
+                                <div class="row">
+                                    <div class="col-xs-2">
+
+
+                                        <form role="form">
+                                            <div class="form-group input-group">
+                                                <input type="text" class="form-control" placeholder="Dni" />
+                                                <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
+                                            </div>
+                                            <p>
+                                            </p>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <!-- div del formulario para actualizar -->
+
+
+                                <div class="row">
+                                    <form role="form">
+                                        <div class="col-lg-3">
+
+
+                                            <div class="form-group ">
+                                                <label>DNI</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input class="form-control" readonly="readonly" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Apellidos</label>
+                                                <input class="form-control" readonly="readonly" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Fecha de nacimiento</label>
+                                                <input class="form-control" type="date" name="fecha" readonly="readonly" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <div class="radio">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="Hombre" />Hombre
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="Mujer" />Mujer
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Nacionalidad</label>
+                                                <input class="form-control" readonly="readonly" />
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Dirección</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                        </div>
+                                        <!-- Div class class="col-lg-3" -->
+
+                                        <div class="col-lg-3">
+
+
+                                            <div class="form-group ">
+                                                <label>Ocupación</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Email</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Teléfono fijo</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Teléfono móvil</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Contraseña</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label>Repite Contraseña</label>
+                                                <input class="form-control" readonly="readonly"/>
+                                            </div>
+
+                                            <br />
+                                            <br />
+
+                                            <div>
+                                                <button type="button" class="btn btn-lg btn-primary">Actualizar</button>
+                                                <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
+                                            </div>
+
+                                        </div>
+                                        <!-- Div class class="col-lg-3" -->
+
+                                    </form>
+                                </div>
+                                <!-- Div class row -->
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <!-- Fin del div del cuerpo de la página -->
+
+                        </div>
+                        <!-- /.container-fluid -->
+
                     </div>
+                    <!-- /#page-wrapper -->
 
-
-                        <!-- div del formulario para actualizar -->
-                    
-
-                        <div class="row">
-                            <form role="form">
-                                <div class="col-lg-3">
-                                    
-
-                                    <div class="form-group ">
-                                        <label>DNI</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        <input class="form-control" readonly="readonly" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Apellidos</label>
-                                        <input class="form-control" readonly="readonly" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Fecha de nacimiento</label>
-                                        <input class="form-control" type="date" name="fecha" readonly="readonly" />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Sexo</label>
-                                        <div class="radio">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="Hombre" />Hombre
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="Mujer" />Mujer
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Nacionalidad</label>
-                                        <input class="form-control" readonly="readonly" />
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Dirección</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                </div>
-                                <!-- Div class class="col-lg-3" -->
-
-                                <div class="col-lg-3">
-                                    
-
-                                    <div class="form-group ">
-                                        <label>Ocupación</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Email</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Teléfono fijo</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Teléfono móvil</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Contraseña</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <div class="form-group ">
-                                        <label>Repite Contraseña</label>
-                                        <input class="form-control" readonly="readonly"/>
-                                    </div>
-
-                                    <br />
-                                    <br />
-
-                                    <div>
-                                        <button type="button" class="btn btn-lg btn-primary">Actualizar</button>
-                                        <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
-                                    </div>
-
-                                </div>
-                                <!-- Div class class="col-lg-3" -->
-
-                            </form>
-                        </div>
-                        <!-- Div class row -->
-
-                        
-
-                        
-
-                        
-
-                    
-
-                    
                 </div>
-             <!-- Fin del div del cuerpo de la página -->
+                <!-- /#wrapper -->
 
-            </div>
-            <!-- /.container-fluid -->
+                <!-- jQuery -->
+                <script src="resources/plantilla/js/jquery.js"></script>
 
-            </div>
-        <!-- /#page-wrapper -->
+                <!-- Bootstrap Core JavaScript -->
+                <script src="resources/plantilla/js/bootstrap.min.js"></script>
 
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="resources/plantilla/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="resources/plantilla/js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="resources/plantilla/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
-
-</body>
+                <!-- Morris Charts JavaScript -->
+                <script src="resources/plantilla/js/plugins/morris/raphael.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
+            </c:when>
+        </c:choose>
+    </h:body>
 
 </html>

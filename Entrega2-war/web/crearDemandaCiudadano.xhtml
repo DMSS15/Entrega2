@@ -4,178 +4,157 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-<
-<h:head>
-    <!--Vista ciudadano-->
-    <!--<meta charset="utf-8" />-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
 
-    <title>Servicios Sociales - Ciudadano</title>
+    <h:head>
+        <!--Vista ciudadano-->
+        <!--<meta charset="utf-8" />-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
 
-    <!-- Bootstrap Core CSS -->
-    <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
+        <title>Servicios Sociales - Ciudadano</title>
 
-    <!-- Custom CSS -->
-    <link href="resources/plantilla/css/sb-admin.css" rel="stylesheet" />
+        <!-- Bootstrap Core CSS -->
+        <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="resources/plantilla/css/plugins/morris.css" rel="stylesheet" />
+        <!-- Custom CSS -->
+        <link href="resources/plantilla/css/sb-admin.css" rel="stylesheet" />
 
-    <!-- Custom Fonts -->
-    <link href="resources/plantilla/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris Charts CSS -->
+        <link href="resources/plantilla/css/plugins/morris.css" rel="stylesheet" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- Custom Fonts -->
+        <link href="resources/plantilla/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
- </h:head>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </h:head>
 
     <h:body>
         <c:choose>
             <c:when test="#{controlAutorizacion.isCiudadano()}">
-    
-    <div id="wrapper">
 
-        <!-- Navigation -->
-        <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Ciudadano</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                        
-                            
+                <div id="wrapper">
+
+                    <!-- Navigation -->
+                    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html">Ciudadano</a>
+                        </div>
+                        <!-- Top Menu Items -->
+                        <ul class="nav navbar-right top-nav">
+
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <h:form>
-                                    <li >
-                                        <h:commandLink action="perfilAdministrativo.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
-                                    </li>
-                                   
-                                    <li class="divider"></li>
-                                    <li>
-                                        <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
-                                    </li>
+                                        <li >
+                                            <h:commandLink action="perfil.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                        </li>
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
+                                        </li>
                                     </h:form>
                                 </ul>
                             </li>
                         </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <h:form>
-                    <!-- Acciones que pueden realizar los ciudadanos -->
-                    <!-- Gestion Cita Previa -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            
-                            <li>
-                                <h:commandLink action="citaPreviaCiudadano.xhtml">Solicitar Cita</h:commandLink>
-                            </li>
-                            <li>
-                                <h:commandLink action="misCitas.xhtml">Mis Citas</h:commandLink>
-                            </li>
-                        </ul>
-                    </li>
+                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav side-nav">
+                                <h:form>
+                                    <!-- Acciones que pueden realizar los ciudadanos -->
+                                    <!-- Gestion Cita Previa -->
+                                    <li>
+                                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
+                                        <ul id="demo" class="collapse">
 
-                    <!-- Comprobar expedientes del ciudadano -->
-                    <li>
-                        <h:commandLink action="misExpedientes.xhtml"><i class="fa fa-fw fa-table"></i> Mis expedientes</h:commandLink>
-                    </li>
-                    
-                    <!-- Creacion de una nueva demanda -->
-                    <li>
-                        <h:commandLink action="crearDemandaCiudadano.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
-                    </li>
-                    </h:form>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+                                            <li>
+                                                <h:commandLink action="citaPreviaCiudadano.xhtml">Solicitar Cita</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="misCitas.xhtml">Mis Citas</h:commandLink>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-        <div id="page-wrapper">
+                                    <!-- Comprobar expedientes del ciudadano -->
+                                    <li>
+                                        <h:commandLink action="misExpedientes.xhtml"><i class="fa fa-fw fa-table"></i> Mis expedientes</h:commandLink>
+                                    </li>
 
-            <div class="container-fluid">
+                                    <!-- Creacion de una nueva demanda -->
+                                    <li>
+                                        <h:commandLink action="crearDemandaCiudadano.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
+                                    </li>
+                                </h:form>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
 
-                <!-- Page Heading -->
-                
-                <div class="jumbotron">
-                    <h1>Nueva Demanda </h1>
-                    
+                    <div id="page-wrapper">
 
-                    <p>
+                        <div class="container-fluid">
 
-                        <script type="text/javascript">
-                            //<![CDATA[
-                            function makeArray() {
-                            for (i = 0; i<makeArray.arguments.length; i++)
-                            this[i + 1] = makeArray.arguments[i];}
-                            var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
-                            'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
-                            var date = new Date();
-                            var day = date.getDate();
-                            var month = date.getMonth() + 1;
-                            var yy = date.getYear();
-                            var year = (yy < 1000) ? yy + 1900 : yy;
-                            document.write("Hoy es " + day + " de " + months[month] + " del " + year);
-                            //]]>
-                        </script>
+                            <!-- Page Heading -->
 
+                            <div class="jumbotron">
+                                <h1>Nueva Demanda </h1>
+                            </div>
 
-                    </p>
+                            <!-- Este es el div del cuerpo de la página -->
+                            <div>
+                                <!--Formulario-->
+                                <h:form role="form">
+                                    <p>Titulo:</p>
+                                    <p><h:inputText value="#{demandab.titulo}" > <BR></BR></h:inputText></p>
+                                    <p>Descripci&oacute;n:</p>
+                                    <p> <h:inputText value="#{demandab.descripcion}" ></h:inputText></p>
+                                    <p><h:commandButton action="#{demandab.anadirDemanda()}" class="btn btn-lg btn-primary" value="Enviar"></h:commandButton>  
+                                    <h:commandLink action="ciudadano.xhtml"><h:commandButton type="button" class="btn btn-lg btn-warning" value="Cancelar"></h:commandButton></h:commandLink></p>
+                                </h:form>
+                            </div>
+                            <!-- Fin del div del cuerpo de la página -->
+
+                        </div>
+                        <!-- /.container-fluid -->
+
+                    </div>
+                    <!-- /#page-wrapper -->
+
                 </div>
+                <!-- /#wrapper -->
 
-             <!-- Este es el div del cuerpo de la página -->
-             <div>
-                 <!--Formulario-->
-                     <form name="demanda" action="asuntossociales@malaga.es" method="post">
-                         <p>Titulo: <h:inputText value="#{dem.titulo}" > <BR></BR></h:inputText></p>
-                         <p>Descripci&oacute;n:</p>
-                         <p> <h:inputText value="#{dem.descripcion}" ></h:inputText></p>
-                         <p><h:commandButton type="submit" value="#{dem.anadirDemanda()}" class="btn btn-lg btn-primary">Enviar</h:commandButton></p>
-                         <p><h:commandLink value="ciudadano.xhtml"><h:commandButton type="button" class="btn btn-lg btn-warning">Cancelar</h:commandButton></h:commandLink>></p>
-                     </form>
-             </div>
-             <!-- Fin del div del cuerpo de la página -->
+                <!-- jQuery -->
+                <script src="resources/plantilla/js/jquery.js"></script>
 
-             </div>
-            <!-- /.container-fluid -->
+                <!-- Bootstrap Core JavaScript -->
+                <script src="resources/plantilla/js/bootstrap.min.js"></script>
 
-            </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="resources/plantilla/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="resources/plantilla/js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="resources/plantilla/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
+                <!-- Morris Charts JavaScript -->
+                <script src="resources/plantilla/js/plugins/morris/raphael.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
+                <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
 
 
-    </c:when>
+            </c:when>
         </c:choose>
     </h:body>
 

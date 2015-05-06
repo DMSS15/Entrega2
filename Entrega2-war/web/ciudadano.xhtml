@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Ciudadano</a>
+               <h:form><h:commandLink class="navbar-brand" action="ciudadano.xhtml">Ciudadano</h:commandLink></h:form>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -64,7 +64,7 @@
                                 <ul class="dropdown-menu">
                                     <h:form>
                                     <li >
-                                        <h:commandLink action="perfilAdministrativo.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                        <h:commandLink action="perfil.xhtml"><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
                                     </li>
                                    
                                     <li class="divider"></li>
@@ -77,8 +77,9 @@
                         </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <h:form>
                 <ul class="nav navbar-nav side-nav">
-                    <h:form>
+                  
                     <!-- Acciones que pueden realizar los ciudadanos -->
                     <!-- Gestion Cita Previa -->
                     <li>
@@ -103,8 +104,9 @@
                     <li>
                         <h:commandLink action="crearDemandaCiudadano.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
                     </li>
-                    </h:form>
+                   
                 </ul>
+                 </h:form>
             </div>
             <!-- /.navbar-collapse -->
         </nav>

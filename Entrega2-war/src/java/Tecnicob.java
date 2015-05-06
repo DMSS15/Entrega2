@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import JPA.*;
 import java.io.Serializable;
@@ -7,21 +12,20 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
- *
- * @author mv
- */
 @ManagedBean
 @SessionScoped
-public class Administrativos implements Serializable{
+public class Tecnicob implements Serializable{
+    
 
-    List<Administrativo> ladministrativos = new ArrayList <Administrativo> ();
+
+    List<Tecnico> tecnicos = new ArrayList <Tecnico> ();
 
     String nombre;
     String DNI;
@@ -31,15 +35,19 @@ public class Administrativos implements Serializable{
     String nacionalidad;
     String despacho;
     String direccion;
+    String especialidad;
     int telfijo;
     int movil;
     String correo;
     String password;
     
-    public Administrativos(){
+    public Tecnicob(){
         
     }
 
+    public String getEspecialidad(){
+        return especialidad;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -72,7 +80,6 @@ public class Administrativos implements Serializable{
         return direccion;
     }
 
-
     public int getTelfijo() {
         return telfijo;
     }
@@ -89,12 +96,12 @@ public class Administrativos implements Serializable{
         return correo;
     }
 
-    public List<Administrativo> getAdministrativos() {
-        return ladministrativos;
+    public List<Tecnico> getTecnico() {
+        return tecnicos;
     }
 
-    public void setAdministrativos(List<Administrativo> administrativos) {
-        this.ladministrativos = administrativos;
+    public void setTecnico (List<Tecnico> tecnicos) {
+        this.tecnicos = tecnicos;
     }
 
     public void setCorreo(String correo) {
@@ -107,6 +114,9 @@ public class Administrativos implements Serializable{
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
+    }
+    public void setEspecialidad(String especialidad){
+        this.especialidad = especialidad;
     }
 
     public void setApellidos(String apellidos) {
@@ -133,8 +143,6 @@ public class Administrativos implements Serializable{
         this.direccion = direccion;
     }
 
-    
-
     public void setTelfijo(int telfijo) {
         this.telfijo = telfijo;
     }
@@ -148,22 +156,25 @@ public class Administrativos implements Serializable{
     }
 
     public void insertar() {
-        Administrativo ad = new Administrativo();
-        ad.setApellidos(apellidos);
-        ad.setNombre(nombre);
-        ad.setDni(DNI);
-        ad.setNacimiento(nacimiento);
-        ad.setSexo(sexo);
-        ad.setNacionalidad(nacionalidad);
-        ad.setDespacho(despacho);
-        ad.setDireccion(direccion);
-        ad.setTfijo(telfijo);
-        ad.setMovil(nombre);
-        ad.setPassword(password);
-        ad.setCorreo(correo);
+        Tecnico t = new Tecnico();
+        t.setApellidos(apellidos);
+        t.setNombre(nombre);
+        t.setDni(DNI);
+        t.setNacimiento(nacimiento);
+        t.setSexo(sexo);
+        t.setNacionalidad(nacionalidad);
+        t.setDespacho(despacho);
+        t.setDireccion(direccion);
+        t.setTfijo(telfijo);
+        t.setMovil(nombre);
+        t.setPassword(password);
+        t.setCorreo(correo);
+        t.setEspecialidad(especialidad);
         
-        ladministrativos.add(ad);
+        tecnicos.add(t);
         
-        System.out.println(ad.getDni());
+        System.out.println(t.getDni());
     }
+
+
 }

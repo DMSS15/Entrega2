@@ -1,4 +1,3 @@
-
 import JPA.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -7,21 +6,20 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
- *
- * @author mv
- */
 @ManagedBean
 @SessionScoped
-public class Administrativos implements Serializable{
+public class Jefeserviciob implements Serializable{
+    
 
-    List<Administrativo> ladministrativos = new ArrayList <Administrativo> ();
+
+    List<JefeServicio> jefes = new ArrayList <JefeServicio> ();
 
     String nombre;
     String DNI;
@@ -31,15 +29,19 @@ public class Administrativos implements Serializable{
     String nacionalidad;
     String despacho;
     String direccion;
+    String especialidad;
     int telfijo;
     int movil;
     String correo;
     String password;
     
-    public Administrativos(){
+    public Jefeserviciob(){
         
     }
 
+    public String getEspecialidad(){
+        return especialidad;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -72,7 +74,6 @@ public class Administrativos implements Serializable{
         return direccion;
     }
 
-
     public int getTelfijo() {
         return telfijo;
     }
@@ -89,12 +90,12 @@ public class Administrativos implements Serializable{
         return correo;
     }
 
-    public List<Administrativo> getAdministrativos() {
-        return ladministrativos;
+    public List<JefeServicio> getJefeServicio() {
+        return jefes;
     }
 
-    public void setAdministrativos(List<Administrativo> administrativos) {
-        this.ladministrativos = administrativos;
+    public void setJefeServicio(List<JefeServicio> jefes) {
+        this.jefes = jefes;
     }
 
     public void setCorreo(String correo) {
@@ -107,6 +108,9 @@ public class Administrativos implements Serializable{
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
+    }
+    public void setEspecialidad(String especialidad){
+        this.especialidad = especialidad;
     }
 
     public void setApellidos(String apellidos) {
@@ -133,8 +137,6 @@ public class Administrativos implements Serializable{
         this.direccion = direccion;
     }
 
-    
-
     public void setTelfijo(int telfijo) {
         this.telfijo = telfijo;
     }
@@ -147,23 +149,28 @@ public class Administrativos implements Serializable{
         this.password = password;
     }
 
+    
+    
     public void insertar() {
-        Administrativo ad = new Administrativo();
-        ad.setApellidos(apellidos);
-        ad.setNombre(nombre);
-        ad.setDni(DNI);
-        ad.setNacimiento(nacimiento);
-        ad.setSexo(sexo);
-        ad.setNacionalidad(nacionalidad);
-        ad.setDespacho(despacho);
-        ad.setDireccion(direccion);
-        ad.setTfijo(telfijo);
-        ad.setMovil(nombre);
-        ad.setPassword(password);
-        ad.setCorreo(correo);
+        JefeServicio j = new JefeServicio();
+        j.setApellidos(apellidos);
+        j.setNombre(nombre);
+        j.setDni(DNI);
+        j.setNacimiento(nacimiento);
+        j.setSexo(sexo);
+        j.setNacionalidad(nacionalidad);
+        j.setDespacho(despacho);
+        j.setDireccion(direccion);
+        j.setTfijo(telfijo);
+        j.setMovil(nombre);
+        j.setPassword(password);
+        j.setCorreo(correo);
+        j.setEspecialidad(especialidad);
         
-        ladministrativos.add(ad);
+        jefes.add(j);
         
-        System.out.println(ad.getDni());
+        System.out.println(j.getDni());
     }
+
+
 }

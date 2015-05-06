@@ -79,21 +79,24 @@
                         </ul>
                         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <h:form>
-                                <ul class="nav navbar-nav side-nav">
+                            <center>  <h:form>
+                                    <ul class="nav navbar-nav side-nav">
 
-                                    <!-- Gestion de usuarios -->
-                                    <li>
-                                        <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
+                                        <!-- Gestion de usuarios -->
+                                        <li>
+                                            <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
 
-                                    </li>
-                                    <li>
-                                        <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
+                                        </li>
+                                        <li>
+                                            <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
 
-                                    </li>
+                                        </li>
+                                        <li>
+                                            <h:commandLink action="gestionarExpedientes.xhtml" ><i class="fa fa-fw fa-edit"></i> Gestionar Expedientes </h:commandLink>
+                                        </li>
 
-                                </ul>
-                            </h:form>
+                                    </ul>
+                                </h:form></center>
                         </div>
                         <!-- /.navbar-collapse -->
                     </nav>
@@ -132,28 +135,28 @@
 
                             <!-- Este es el div del cuerpo de la página -->
                             <div>
-                                <h:form>
+                                <center><h:form>
 
 
-                                    <p:dataTable emptyMessage="No hay tecnico" id="eventsDTi" var="c" value="#{verCiudadanos.ciudadanos}"  rowKey="tec.codigo" scrollable="true" scrollHeight="150">
+                                        <p:dataTable emptyMessage="No hay tecnico" id="eventsDTi" var="c" value="#{verCiudadanos.ciudadanos}"  rowKey="tec.codigo" scrollable="true" scrollHeight="150">
 
-                                        <f:facet name="header">
-                                            Ciudadanos
-                                        </f:facet>
-                                        <p:column headerText="DNI ">
-                                            <h:outputText value="#{c.dni}" />
-                                        </p:column>
-                                        <p:column headerText="Nombre Profesional">
-                                            <h:outputText value="#{c.nombre}" />
-                                        </p:column>
-                                        <p:column headerText="Apellidos Profesional">
-                                            <h:outputText value="#{c.apellidos}" />
-                                        </p:column>
+                                            <f:facet name="header">
+                                                Ciudadanos
+                                            </f:facet>
+                                            <p:column headerText="DNI ">
+                                                <h:outputText value="#{c.dni}" />
+                                            </p:column>
+                                            <p:column headerText="Nombre Profesional">
+                                                <h:outputText value="#{c.nombre}" />
+                                            </p:column>
+                                            <p:column headerText="Apellidos Profesional">
+                                                <h:outputText value="#{c.apellidos}" />
+                                            </p:column>
 
-                                    </p:dataTable>
-                                    <br/>
-                                    <p:commandButton value="Actualizar" update="eventsDTi" />
-                                </h:form>
+                                        </p:dataTable>
+                                        <br/>
+                                        <p:commandButton value="Actualizar" update="eventsDTi" />
+                                    </h:form></center>
                             </div>
                             <!-- Fin del div del cuerpo de la página -->
 
