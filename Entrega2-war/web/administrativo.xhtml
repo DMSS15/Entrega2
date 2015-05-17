@@ -80,7 +80,37 @@
                         </ul>
                         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
-                          
+                            <h:form>
+                                <ul class="nav navbar-nav side-nav">
+
+                                    <!-- Gestion de ciudadanos -->
+                                    <li>
+                                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
+                                        <ul id="demo" class="collapse">
+
+                                            <li>
+                                                <h:commandLink action="crearCiudadano.xhtml">Crear Ciudadano</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="eliminarCiudadano.xhtml">Borrar Ciudadano</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="actualizarCiudadano.xhtml">Actualizar Ciudadano</h:commandLink>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <h:commandLink action="citaPreviaAdministrativo.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</h:commandLink>
+                                    </li>
+                                    <li>
+                                        <h:commandLink action="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</h:commandLink>
+                                    </li>
+
+
+                                </ul>
+                            </h:form>
                         </div>
                         <!-- /.navbar-collapse -->
                     </nav>

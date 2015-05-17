@@ -153,24 +153,25 @@ public class Ciudadanob implements Serializable{
     
     
     public void anadirCiudadano() {
-        Ciudadano c = new Ciudadano();
-        
-        c.setDni(dni);
-        c.setNombre(nombre);
-        c.setApellidos(apellidos);
-        c.setNacimiento(fecnac);
-        c.setSexo(sexo);
-        c.setNacionalidad(nacionalidad);
-        c.setDireccion(direccion);
-        c.setOcupacion(ocupacion);
-        c.setCorreo(email);
-        c.setTfijo(fijo);
-        c.setMovil(movil);
-        c.setPassword(pass);
-        
-        ciudadanos.add(c);
-        
-        System.out.println(c.getApellidos());
+//        Ciudadano c = new Ciudadano();
+//        
+//        c.setDni(dni);
+//        c.setNombre(nombre);
+//        c.setApellidos(apellidos);
+//        c.setNacimiento(fecnac);
+//        c.setSexo(sexo);
+//        c.setNacionalidad(nacionalidad);
+//        c.setDireccion(direccion);
+//        c.setOcupacion(ocupacion);
+//        c.setCorreo(email);
+//        c.setTfijo(fijo);
+//        c.setMovil(movil);
+//        c.setPassword(pass);
+//        
+//        ciudadanos.add(c);
+//        
+//        System.out.println(c.getApellidos());
+//        
         
     }
     
