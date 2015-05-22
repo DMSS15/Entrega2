@@ -5,19 +5,23 @@
  */
 package Clases;
 
+import EJB.AdministrativoLocal;
 import JPA.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class Ciudadanob implements Serializable{
-    
+public class Ciudadanob implements Serializable {
+
+    private AdministrativoLocal administrativo;
+    private Ciudadano ciudadano;
     private String dni;
     private String nombre;
     private String apellidos;
@@ -31,11 +35,13 @@ public class Ciudadanob implements Serializable{
     private String movil;
     private String pass;
     private String passn;
-    
-    private List<Ciudadano> ciudadanos=new ArrayList<Ciudadano>();
-    
-    public Ciudadanob(){
-        
+
+    private boolean registroOK;
+
+    private List<Ciudadano> ciudadanos = new ArrayList<Ciudadano>();
+
+    public Ciudadanob() {
+
     }
 
     public String getDni() {
@@ -105,7 +111,7 @@ public class Ciudadanob implements Serializable{
     public String getEmail() {
         return email;
     }
- 
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -149,10 +155,8 @@ public class Ciudadanob implements Serializable{
     public void setCiudadanos(List<Ciudadano> ciudadanos) {
         this.ciudadanos = ciudadanos;
     }
-    
-    
-    
-    public void anadirCiudadano() {
+
+    public String anadirCiudadano() {
 //        Ciudadano c = new Ciudadano();
 //        
 //        c.setDni(dni);
@@ -172,8 +176,24 @@ public class Ciudadanob implements Serializable{
 //        
 //        System.out.println(c.getApellidos());
 //        
-        
+        if (!ciudadano.getPassword().equals(passn)) {
+            FacesMessage fm = new FacesMessage("Las contraseñas deben coincidir");
+            FacesContext.getCurrentInstance().addMessage("registro:passn", fm);
+            return null;
+        }
+
+        AdministrativoLocal.Error e = administrativo.registrarCiudadano(ciudadano);
+
+        switch (e) {
+            case CUENTA_REPETIDA:
+                FacesMessage fm = new FacesMessage("Existe un usuario con la misma cuenta");
+                FacesContext.getCurrentInstance().addMessage("registro:user", fm);
+                return null;
+        }
+
+        registroOK = true;
+
+        return "exitoRegistro.xhtml";
     }
-    
-    
+
 }
