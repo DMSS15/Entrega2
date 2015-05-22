@@ -43,147 +43,71 @@
         <!-- Navigation -->
         <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Administrativo</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 1...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 2...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="" />
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Ayer a las 4:32 PM</p>
-                                        <p>Ejemplo 3...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Leer Todos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-default">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-primary">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-success">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-info">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-warning">Alerta</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Nombre de alerta <span class="label label-danger">Alerta</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">Ver Todas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Correo</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Opciones</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form><h:commandLink class="navbar-brand" action="administrador.xhtml">Administrador</h:commandLink></h:form>
+                        </div>
+                        <!-- Top Menu Items -->
+                        <ul class="nav navbar-right top-nav">
 
-                    <!-- Gestion de ciudadanos -->
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Ciudadanos <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="crearCiudadano.xhtml">Crear Ciudadano</a>
-                            </li>
-                            <li>
-                                <a href="eliminarCiudadano.xhtml">Borrar Ciudadano</a>
-                            </li>
-                            <li>
-                                <a href="actualizarCiudadano.xhtml">Actualizar Ciudadano</a>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <h:form>
+                                        <li >
+                                            <h:commandLink action="perfil.xhtml" ><i class="fa fa-fw fa-user"></i> Perfil </h:commandLink>
+                                        </li>
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <h:commandLink action="#{controlAutorizacion.logout()}"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</h:commandLink>
+                                        </li>
+                                    </h:form>
+                                </ul>
                             </li>
                         </ul>
-                    </li>
+                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <h:form>
+                            <ul class="nav navbar-nav side-nav">
+                                 
+                                    <!-- Gestion de usuarios -->
+                                    <li>
+                                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
 
-                    <li>
-                        <a href="citaPreviaAdministrativo.xhtml"><i class="fa fa-fw fa-table"></i> Cita Previa</a>
-                    </li>
-                    <li>
-                        <a href="crearDemandaAdministrativo.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Crear Demanda</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+                                        <ul id="demo" class="collapse">
+
+                                            <li>
+                                                <h:commandLink action="crearJefeServicio.xhtml" >Crear Jefe de Servicio</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="crearAdministrativo.xhtml">Crear Administrativo</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="crearTecnico.xhtml">Crear T&eacute;cnico</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="actualizarUsuario.xhtml">Actualizar Usuario</h:commandLink>
+                                            </li>
+                                            <li>
+                                                <h:commandLink action="eliminarUsuario.xhtml">Eliminar Usuario</h:commandLink>                                        </li>
+
+                                        </ul>
+
+
+                                    </li>
+                            </ul>
+                            </h:form> 
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
 
         <div id="page-wrapper">
 

@@ -54,7 +54,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                           <h:form><h:commandLink class="navbar-brand" action="Administrador.xhtml">Administrador</h:commandLink></h:form>
+                            <h:form><h:commandLink class="navbar-brand" action="administrador.xhtml">Administrador</h:commandLink></h:form>
                         </div>
                         <!-- Top Menu Items -->
                         <ul class="nav navbar-right top-nav">
@@ -78,14 +78,15 @@
                         </ul>
                         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <h:form>
                             <ul class="nav navbar-nav side-nav">
+                                 
+                                    <!-- Gestion de usuarios -->
+                                    <li>
+                                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
 
-                                <!-- Gestion de usuarios -->
-                                <li>
-                                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-edit"></i> Gestionar Usuarios <i class="fa fa-fw fa-caret-down"></i></a>
+                                        <ul id="demo" class="collapse">
 
-                                    <ul id="demo" class="collapse">
-                                        <h:form>    
                                             <li>
                                                 <h:commandLink action="crearJefeServicio.xhtml" >Crear Jefe de Servicio</h:commandLink>
                                             </li>
@@ -100,12 +101,13 @@
                                             </li>
                                             <li>
                                                 <h:commandLink action="eliminarUsuario.xhtml">Eliminar Usuario</h:commandLink>                                        </li>
-                                        </h:form>    
-                                    </ul>
+
+                                        </ul>
 
 
-                                </li>
+                                    </li>
                             </ul>
+                            </h:form> 
                         </div>
                         <!-- /.navbar-collapse -->
                     </nav>
