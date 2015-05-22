@@ -102,6 +102,6 @@ public class Ciudadano extends Usuario {
         this.expedientes = expedientes;
     }
     
-     //equal y hascode eredado de Usuario
+     //equal y hascode heredado de Usuario
 
 }

@@ -26,19 +26,10 @@ public class Baja implements Serializable {
     private String motivo;
     private Date fechaInicio;
     private Date fechaFin;
-    
 
     //getters and setters
     
-    public Integer getCodigoBaja() {
-        return codigoBaja;
-    }
-
-    public void setCodigoBaja(Integer codigoBaja) {
-        this.codigoBaja = codigoBaja;
-    }
-    
-     public Date getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
@@ -46,12 +37,20 @@ public class Baja implements Serializable {
         this.fechaInicio = fechaInicio;
     }
 
-     public Date getFechaFin() {
+    public Date getFechaFin() {
         return fechaFin;
     }
 
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+    
+    public Integer getCodigoBaja() {
+        return codigoBaja;
+    }
+
+    public void setCodigoBaja(Integer codigoBaja) {
+        this.codigoBaja = codigoBaja;
     }
     
     public String getMotivo() {

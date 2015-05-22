@@ -60,9 +60,9 @@ public class Login {
                 if (u.getPassword().equals(contrasenia)) {
                     // Va a una u otra dependiendo del rol
                     ctrl.setUsuario(u);
-                    if(ctrl.isTrabajador()){
+                    
                         perf.setUsuario(u);
-                    }
+                    
                     return ctrl.home();
                 } else {
                     // Falló la contraseña
@@ -123,8 +123,10 @@ public class Login {
         c.setCorreo("magonmo92@alu.uma.es");
         c.setDireccion("Sebastian Garrido 54");
         c.setNacimiento(new Date(1992, 01, 12));
+        c.setCentro("Teatinos");
         c.setNacionalidad("España");
         c.setSexo("Mujer");
+        c.setTelefono("999");
         usuarios.add(c);
         
         //--Administrativos--
