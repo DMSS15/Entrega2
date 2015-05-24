@@ -54,7 +54,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                           <a class="navbar-brand" href="jefeServicio.xhtml">Jefe de Servicio</a>
+                            <a class="navbar-brand" href="jefeServicio.xhtml">Jefe de Servicio</a>
                         </div>
                         <!-- Top Menu Items -->
                         <ul class="nav navbar-right top-nav">
@@ -97,36 +97,41 @@
 
                             <!-- Page Heading -->
 
-                            <div class="jumbotron">
-                                <h3>¡Asignar demandas!</h3>
-                            </div>
-
+                            
                             <!-- Este es el div del cuerpo de la página -->
                             <div>
                                 <h:form>
-                                    <p:dataTable emptyMessage="No hay demandas" id="eventsDT" var="dem" value="#{demandas.demanda}" selectionMode="single" selection="#{demandas.demdelect}" rowKey="dem.codigo" scrollable="true" scrollHeight="150">
+                                    <p:growl id="msgs" showDetail="true" />
+                                    <p:dataTable emptyMessage="No hay demandas" id="eventsDT" var="dem" value="#{demandas.demanda}" 
+                                                 selectionMode="single" selection="#{demandas.demdelect}" rowKey="#{dem.codigo}" 
+                                                  scrollHeight="150" >
 
 
                                         <f:facet name="header">
                                             Selecciona Demanda
                                         </f:facet>
 
-                                        <p:column headerText="Demanda">
+                                        <p:column headerText="Codigo">
                                             <h:outputText value="#{dem.codigo}" />
                                         </p:column>
-                                        <p:column headerText="DNI Ciudadano">
-                                            <h:outputText value="#{dem.ciudadano.dni}" />
+                                        <p:column headerText="Titulo">
+                                            <h:outputText value="#{dem.titulo}" />
                                         </p:column>
-                                        <p:column headerText="Nombre Ciudadano">
-                                            <h:outputText value="#{dem.ciudadano.nombre}" />
+                                        <p:column headerText="Descripcion">
+                                            <h:outputText value="#{dem.descripcion}" />
                                         </p:column>
-                                        <p:column headerText="Apellidos Ciudadano">
-                                            <h:outputText value="#{dem.ciudadano.apellidos}" />
+                                        <!--p:column headerText="Fecha de solicitud">
+                                            <h:outputText value="#{dem.fechaIni}" />
+                                        </p:column-->
+                                        <p:column headerText="Denegar">
+                                            <center> <p:commandButton value="X" action="#{demandas.denegar(dem)}" ajax="eventsDT"/> </center>
                                         </p:column>
                                     </p:dataTable>
                                     <br/>
-
-                                    <p:dataTable  emptyMessage="No hay tecnico" id="eventsDTi" var="tec" value="#{demandas.tecnico}" selectionMode="single"  selection="#{demandas.tecselect}" rowKey="tec.codigo" scrollable="true" scrollHeight="150">
+                                    
+                                    <p:dataTable  emptyMessage="No hay tecnico" id="eventsDTi" var="tec" value="#{demandas.tecnico}" 
+                                                  selectionMode="single"  selection="#{demandas.tecselect}" rowKey="#{tec.codigo}" 
+                                                  scrollHeight="150" >
 
                                         <f:facet name="header">
                                             Selecciona Tecnico
@@ -140,12 +145,15 @@
                                         <p:column headerText="Apellidos Profesional">
                                             <h:outputText value="#{tec.apellidos}" />
                                         </p:column>
-
+                                        <p:column headerText="demandas">
+                                            <h:outputText value="#{demandas.numeroDemandas(tec)}" />
+                                        </p:column>
+                                        
                                     </p:dataTable>
                                     <br/>
 
 
-                                    <p:commandButton value="Asignar" update="eventsDTi,eventsDT" action="#{demandas.asociar()}"/>
+                                    <p:commandButton value="Asignar"  action="#{demandas.asociar()}" ajax="eventsDTi,eventsDT"/>
                                 </h:form>
                             </div>
                             <!-- Fin del div del cuerpo de la página -->
@@ -170,6 +178,9 @@
                 <script src="resources/plantilla/js/plugins/morris/morris.min.js"></script>
                 <script src="resources/plantilla/js/plugins/morris/morris-data.js"></script>
             </c:when>
+            <c:otherwise>
+                <link href="index.xhtml" />
+            </c:otherwise>
         </c:choose>
     </h:body>
 

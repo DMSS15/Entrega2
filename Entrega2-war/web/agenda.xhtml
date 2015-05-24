@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
 
         <!--<meta charset="utf-8" />-->
@@ -13,7 +12,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>Servicios Sociales - Tecnico: Agenda</title>
+        <title>Servicios Sociales - Tecnico</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="resources/plantilla/css/bootstrap.min.css" rel="stylesheet" />
@@ -37,25 +36,25 @@
     </h:head>
 
     <h:body>
-        <c:choose>
-            <c:when test="#{controlAutorizacion.tecnico}">
-                <div id="wrapper">
 
-                    <!-- Navigation -->
-                    <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
-                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="tecnico.xhtml">Tecnico</a>
-                        </div>
-                        <!-- Top Menu Items -->
-                        <ul class="nav navbar-right top-nav">
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >-->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="tecnico.xhtml">Tecnico</a>
+                </div>
+                <!-- Top Menu Items -->
+                 <ul class="nav navbar-right top-nav">
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <h:outputText value="#{controlAutorizacion.usuario.getNombre()}"/><h:outputText value="#{controlAutorizacion.usuario.getApellidos()}"/>  <b class="caret"></b></a>
@@ -73,120 +72,117 @@
                                 </ul>
                             </li>
                         </ul>
-                        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-                        <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <h:form>
-                                <ul class="nav navbar-nav side-nav">
+                <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <h:form>
+                        <ul class="nav navbar-nav side-nav">
 
-                                    <!-- Gestion de usuarios -->
-                                    <li>
-                                        <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
+                            <!-- Gestion de usuarios -->
+                            <li>
+                                <h:commandLink action="agenda.xhtml" ><i class="fa fa-fw fa-edit"></i> Mi Agenda </h:commandLink>
 
-                                    </li>
-                                    <li>
-                                        <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
+                            </li>
+                            <li>
+                                <h:commandLink action="verCiudadanos.xhtml" ><i class="fa fa-fw fa-edit"></i> Ver ciudadanos </h:commandLink>
 
-                                    </li>
-                                    <li>
-                                        <h:commandLink action="gestionarExpedientes.xhtml" ><i class="fa fa-fw fa-edit"></i> Gestionar Expedientes </h:commandLink>
-                                    </li>
+                            </li>
 
-                                </ul>
-                            </h:form>
-                        </div>
-                        <!-- /.navbar-collapse -->
-                    </nav>
-                    <div id="page-wrapper" >
+                        </ul>
+                    </h:form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+            <div id="page-wrapper" >
 
-                        <center> <h:form>
-                                <p:growl id="messages" showDetail="true" />
+                <center> <h:form>
+                        <p:growl id="messages" showDetail="true" />
 
-                                <h:panelGrid columnClasses="value">
+                        <h:panelGrid columnClasses="value">
 
-                                    <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2">
+                            <p:schedule id="schedule" value="#{scheduleView.eventModel}" widgetVar="myschedule" timeZone="GMT+2" locale="tr">
 
-                                        <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
-                                        <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
-                                        <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="messages" />
-                                        <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="messages" />
+                                <p:ajax event="dateSelect" listener="#{scheduleView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                                <p:ajax event="eventSelect" listener="#{scheduleView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                                <p:ajax event="eventMove" listener="#{scheduleView.onEventMove}" update="messages" />
+                                <p:ajax event="eventResize" listener="#{scheduleView.onEventResize}" update="messages" />
 
-                                    </p:schedule>
+                            </p:schedule>
 
 
+                        </h:panelGrid>
+
+                        <p:dialog widgetVar="eventDialog" header="Evento" showEffect="clip" hideEffect="clip">
+                            <h:panelGrid id="eventDetails" columns="2" cellspacing="2">
+                                <p:messages autoUpdate="true" />
+
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellspacing="2">
+                                    <p:outputLabel for="console" value="Tipo:" />
+                                    <p:selectOneMenu id="console"  style="width:125px" value="#{scheduleView.event.tipo}">
+                                        <f:selectItem itemLabel="Reunion" itemValue="Reunion" />
+                                        <f:selectItem itemLabel="Baja" itemValue="Baja" />
+                                        <f:selectItem itemLabel="Demanda" itemValue="Demanda" />
+
+                                    </p:selectOneMenu>
                                 </h:panelGrid>
 
-                                <p:dialog widgetVar="eventDialog" header="Evento" showEffect="clip" hideEffect="clip">
-                                    <h:panelGrid id="eventDetails" columns="2">
-                                        <p:messages autoUpdate="true" />
+                                <h:outputLabel for="title" value="Motivo:  " />
+                                <p:inputText id="title" value="#{scheduleView.event.title}"  required="true" />
 
-                                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" >
-                                            <p:outputLabel for="console" value="Tipo:" />
-                                            <p:selectOneMenu id="console"  style="width:125px" >
-                                                <f:selectItem itemLabel="Reunion" itemValue="Reunion" />
-                                                <f:selectItem itemLabel="Baja" itemValue="Baja" />
-                                                <f:selectItem itemLabel="Demanda" itemValue="Demanda" />
+                                <h:outputLabel for="from" value="Desde:" />
+                                <p:inputMask id="from" value="#{scheduleView.event.startDate}" mask="99/99/9999">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
+                                </p:inputMask>
 
-                                            </p:selectOneMenu>
-                                        </h:panelGrid>
-                                        <h:outputLabel for="title" value="Motivo:" />
-                                        <p:inputText id="title" value="#{scheduleView.event.title}"  required="true" />
+                                <h:outputLabel for="to" value="Hasta:" />
+                                <p:inputMask id="to" value="#{scheduleView.event.endDate}" mask="99/99/9999">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
+                                </p:inputMask>
+                                <!--h:outputLabel for="hora" value="Hora inicio:" />
+                                <p:inputText id="hora" value="" required="true"/-->
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <h:outputLabel for="allDay" value="Todo el día:" />
+                                    <h:selectBooleanCheckbox id="allDay" value="#{scheduleView.event.allDay}" />
+                                </h:panelGrid >
+                                   
+                            </h:panelGrid>
+                             <p:commandButton type="reset" value="Limpiar" />
+                                    <p:commandButton id="addButton" value="Guardar" actionListener="#{scheduleView.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                                
+                        </p:dialog>    
+                    </h:form></center>
 
-                                        <h:outputLabel for="desde" value="Desde:" />
-                                        <p:inputMask id="from" value="#{scheduleView.event.startDate}" mask="99/99/9999">
-                                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
-                                        </p:inputMask>
+                <script type="text/javascript">
+                    PrimeFaces.locales['tr'] = {
+                        closeText: 'kapat',
+                        prevText: 'geri',
+                        nextText: 'ileri',
+                        currentText: 'Hoy',
+                        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                            'Jul', 'Ag', 'Sep', 'Oct', 'Nov', 'DicS'],
+                        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                        dayNamesShort: ['Domingo', 'Lunes', 'Miercoles', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                        dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                        weekHeader: 'Hf',
+                        firstDay: 1,
+                        isRTL: false,
+                        showMonthAfterYear: false,
+                        yearSuffix: '',
+                        month: 'Mes',
+                        week: 'Semana',
+                        day: 'Dia',
+                        allDayText: 'Todo el dia'
+                    };
+                </script>
+                <style type="text/css">
+                    .value {
+                        width: 690px;
+                    }
+                </style>
 
-                                        <h:outputLabel for="hasta" value="Hasta:" />
-                                        <p:inputMask id="to" value="#{scheduleView.event.endDate}" mask="99/99/9999">
-                                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"/>
-                                        </p:inputMask>
-                                        <h:outputLabel for="hora" value="Hora:" />
-                                        <p:inputMask id="hora" value="" mask="99:99">
-                                            <f:convertDateTime pattern="h:mm a" timeZone="GMT+2"/>
-                                        </p:inputMask>
-                                        <h:outputLabel for="allDay" value="Todo el día:" />
-                                        <h:selectBooleanCheckbox id="allDay" value="#{scheduleView.event.allDay}" />
-
-                                        <p:commandButton type="reset" value="Limpiar" />
-                                        <p:commandButton id="addButton" value="Guardar" actionListener="#{scheduleView.addEvent}" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
-                                    </h:panelGrid>
-                                </p:dialog>    
-                            </h:form></center>
-
-                        <script type="text/javascript">
-                            PrimeFaces.locales['tr'] = {
-                                closeText: 'kapat',
-                                prevText: 'geri',
-                                nextText: 'ileri',
-                                currentText: 'bugün',
-                                monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
-                                    'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
-                                monthNamesShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz',
-                                    'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
-                                dayNames: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
-                                dayNamesShort: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
-                                dayNamesMin: ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'],
-                                weekHeader: 'Hf',
-                                firstDay: 1,
-                                isRTL: false,
-                                showMonthAfterYear: false,
-                                yearSuffix: '',
-                                month: 'Ay',
-                                week: 'Hafta',
-                                day: 'Gün',
-                                allDayText: 'Tüm Gün'
-                            };
-                        </script>
-                        <style type="text/css">
-                            .value {
-                                width: 700px;
-                            }
-                        </style>
-
-                    </div>
-                </div>
-            </c:when>
-        </c:choose>
+            </div>
+        </div>
     </h:body>
 </html>
 

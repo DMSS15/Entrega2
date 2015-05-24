@@ -26,10 +26,20 @@ public class Tecnico extends Usuario{
     
     private String especialidad;
     private String despacho;
+    //AÑADIMOS BAJAS TRUE SI ESTA DE BAJA Y FALSE SI NO
+    private Boolean estoyDeBaja;
+
+    public Boolean getEstoyDeBaja() {
+        return estoyDeBaja;
+    }
+
+    public void setEstoyDeBaja(Boolean estoyDeBaja) {
+        this.estoyDeBaja = estoyDeBaja;
+    }
     
         //relacion uno a muchos entre Tecnico y Baja
     
-    @OneToMany (mappedBy = "baja")
+   @OneToMany (mappedBy = "baja")
     private List<Baja> baja;
     
     
