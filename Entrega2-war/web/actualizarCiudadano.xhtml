@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
 
@@ -125,13 +126,16 @@
                             <!-- Este es el div del cuerpo de la página -->
                             <div>
                                 <h1>Actualizar Ciudadano</h1>
+                                
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                      <h:form role="form">
+                                       <div class="col-lg-3">
+                                    
 
-
-                                        <form role="form">
+                                        
                                             <div class="form-group input-group">
-                                                <input type="text" class="form-control" placeholder="Dni" />
+                                                <label>DNI</label>
+                                                <p> <h:inputText value="#{ciudadanob.busqueda}" ></h:inputText></p>
                                                 <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
                                             </div>
                                             <p>
@@ -146,54 +150,51 @@
 
 
                                 <div class="row">
-                                    <form role="form">
+                                     <h:form role="form">
                                         <div class="col-lg-3">
 
 
                                             <div class="form-group ">
                                                 <label>DNI</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <p> <h:inputText value="#{ciudadanob.dni}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input class="form-control" readonly="readonly" />
+                                                <p> <h:inputText value="#{ciudadanob.nombre}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Apellidos</label>
-                                                <input class="form-control" readonly="readonly" />
+                                                <p> <h:inputText value="#{ciudadanob.apellidos}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Fecha de nacimiento</label>
-                                                <input class="form-control" type="date" name="fecha" readonly="readonly" />
+                                                <p:inputMask id="from" value="#{ciudadanob.fecnac}" mask="99/99/9999">
+                                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT+2"></f:convertDateTime>
+                                                </p:inputMask>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Sexo</label>
-                                                <div class="radio">
-                                                    <label class="radio-inline">
-                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="Hombre" />Hombre
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label class="radio-inline">
-                                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="Mujer" />Mujer
-                                                    </label>
-                                                </div>
+                                                <p:selectOneRadio id="console" value="#{ciudadanob.sexo}">
+                                                    <f:selectItem itemLabel="Mujer" itemValue="Mujer" />
+                                                    <f:selectItem itemLabel="Hombre" itemValue="Hombre" />
+                                                 </p:selectOneRadio>
+                                                        
                                             </div>
-
+                                            
                                             <div class="form-group">
                                                 <label>Nacionalidad</label>
-                                                <input class="form-control" readonly="readonly" />
+                                                <p> <h:inputText value="#{ciudadanob.nacionalidad}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label>Dirección</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Direcci&oacute;n</label>
+                                                <p> <h:inputText value="#{ciudadanob.direccion}" ></h:inputText></p>
                                             </div>
-
+                                    
                                         </div>
                                         <!-- Div class class="col-lg-3" -->
 
@@ -201,43 +202,42 @@
 
 
                                             <div class="form-group ">
-                                                <label>Ocupación</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Ocupaci&oacute;n</label>
+                                                <p> <h:inputText value="#{ciudadanob.ocupacion}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
                                                 <label>Email</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <p> <h:inputText value="#{ciudadanob.email}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label>Teléfono fijo</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Tel&eacute;fono fijo</label>
+                                                <p> <h:inputText value="#{ciudadanob.movil}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label>Teléfono móvil</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Tel&eacute;fono m&oacute;vil</label>
+                                                <p> <h:inputText value="#{ciudadanob.movil}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label>Contraseña</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Contrase&ntilde;a</label>
+                                                <p> <h:inputText value="#{ciudadanob.pass}" ></h:inputText></p>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label>Repite Contraseña</label>
-                                                <input class="form-control" readonly="readonly"/>
+                                                <label>Repite Contrase&ntilde;a</label>
+                                                <p> <h:inputText value="#{ciudadanob.passn}" ></h:inputText></p>
                                             </div>
 
                                             <br />
                                             <br />
 
                                             <div>
-                                                <button type="button" class="btn btn-lg btn-primary">Actualizar</button>
-                                                <a href="administrativo.xhtml"><button type="button" class="btn btn-lg btn-warning">Cancelar</button></a>
+                                                <h:commandButton action="#{ciudadanob.actualizarCiudadano}" class="btn btn-lg btn-primary" value="crear" ></h:commandButton>
+                                                <h:commandLink action="administrativo.xhtml"><h:commandButton type="button" class="btn btn-lg btn-warning" value="Cancelar"></h:commandButton></h:commandLink>
                                             </div>
-
                                         </div>
                                         <!-- Div class class="col-lg-3" -->
 

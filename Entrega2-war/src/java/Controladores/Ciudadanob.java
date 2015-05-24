@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package Controladores;
 
 import EJB.AdministrativoLocal;
 import JPA.*;
@@ -31,7 +31,7 @@ public class Ciudadanob implements Serializable {
     private String direccion;
     private String ocupacion;
     private String email;
-    private int fijo;
+    private String fijo;
     private String movil;
     private String pass;
     private String passn;
@@ -116,11 +116,11 @@ public class Ciudadanob implements Serializable {
         this.email = email;
     }
 
-    public int getFijo() {
+    public String getFijo() {
         return fijo;
     }
 
-    public void setFijo(int fijo) {
+    public void setFijo(String fijo) {
         this.fijo = fijo;
     }
 

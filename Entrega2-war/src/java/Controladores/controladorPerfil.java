@@ -1,4 +1,4 @@
-package autenticacion;
+package Controladores;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,7 +9,7 @@ package autenticacion;
  *
  * @author Juan Carlos
  */
-import autenticacion.ControlAutorizacion;
+import Controladores.ControlAutorizacion;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
