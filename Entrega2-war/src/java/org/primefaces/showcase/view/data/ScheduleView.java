@@ -29,6 +29,7 @@ public class ScheduleView implements Serializable {
  
     private Evento event = new Evento();
  
+   
     @PostConstruct
     public void init() {
         eventModel = new DefaultScheduleModel();
@@ -42,10 +43,10 @@ public class ScheduleView implements Serializable {
             @Override
             public void loadEvents(Date start, Date end) {
                 Date random = getRandomDate(start);
-                addEvent(new DefaultScheduleEvent("Lazy Event 1", random, random));
+                addEvent(new Evento("","Lazy Event 1", random, random));
                  
                 random = getRandomDate(start);
-                addEvent(new DefaultScheduleEvent("Lazy Event 2", random, random));
+                addEvent(new Evento("","Lazy Event 2", random, random));
             }   
         };
     }

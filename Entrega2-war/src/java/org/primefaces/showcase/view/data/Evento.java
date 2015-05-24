@@ -16,12 +16,11 @@ import org.primefaces.model.ScheduleEvent;
  *
  * @author Rubencito
  */
- 
+
 public class Evento extends DefaultScheduleEvent {
     
     
     private String tipo;
- 
 
     public String getTipo() {
         return tipo;
@@ -30,6 +29,9 @@ public class Evento extends DefaultScheduleEvent {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+ 
+
+    
     public Evento (){
         super();
     }
