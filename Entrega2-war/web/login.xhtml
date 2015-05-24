@@ -31,33 +31,34 @@
         <![endif]-->
         <link href="resources/css/nuevo.css" rel="stylesheet"/>
     </h:head>
-    <h:body>
-        <div class="intro-header">
-            <h1>Servicios Sociales Comunitarios</h1>
-            <h4>Ayuntamiento de M&aacute;laga</h4>
-            <hr class="intro-divider">
-                <h2>Por favor inicie sesi&oacute;n</h2>
-                <div class="container">
+    <c:choose>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-
-
+        <c:when test="#{empty controlAutorizacion.usuario}">
+            <h:body>
+                <div class="intro-header">
+                    <h1>Servicios Sociales Comunitarios</h1>
+                    <h4>Ayuntamiento de M&aacute;laga</h4>
+                    <hr class="intro-divider">
+                        <h2>Por favor inicie sesi&oacute;n</h2>
+                        <div class="container">
 
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="pr-wrap">
-                                        <div class="pass-reset">
-                                            <label>
-                                                Enter the email you signed up with</label>
-                                            <input type="email" placeholder="Email" />
-                                            <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
-                                        </div>
-                                    </div>
-                                    <div class="wrap">
-                                        <c:choose>
+                                <div class="col-lg-12">
 
-                                            <c:when test="#{empty controlAutorizacion.usuario}">
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pr-wrap">
+                                                <div class="pass-reset">
+                                                    <label>
+                                                        Enter the email you signed up with</label>
+                                                    <input type="email" placeholder="Email" />
+                                                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                                                </div>
+                                            </div>
+                                            <div class="wrap">
+
                                                 <h:form class="login">
                                                     <p:inputText value="#{login.usuario}" placeholder="Nombre de usuario" />
                                                     <p:password value="#{login.contrasenia}"  placeholder="Contrase&ntilde;a" />
@@ -75,44 +76,116 @@
                                                         </div>
                                                     </div>
                                                 </h:form>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <h:form>
-                                                    <p>la sesion ya esta iniciada</p>
-                                                    <h:commandButton value="Ir a mi pg" action="#{controlAutorizacion.home()}"  />
-                                                    <h:commandButton value="Log Out" action="#{controlAutorizacion.logout()}" />
-                                                </h:form>
-                                            </c:otherwise>
-                                        </c:choose>
 
+
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                    </hr>
                 </div>
-            </hr>
-        </div>
 
 
-        <!-- /.container -->
+                <!-- /.container -->
 
 
 
 
-        <!-- /.intro-header -->
+                <!-- /.intro-header -->
 
-        <!-- Page Content -->
+                <!-- Page Content -->
 
 
 
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
+                <!-- jQuery -->
+                <script src="js/jquery.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
 
-    </h:body>
+            </h:body>
+        </c:when>
+        <c:otherwise>
+            <h:body>
+                <div class="intro-header">
+                    <h1>Servicios Sociales Comunitarios</h1>
+                    <h4>Ayuntamiento de M&aacute;laga</h4>
+                    <hr class="intro-divider">
+                        <h2>La sesion ya esta iniciada</h2>
+                        <h3>¿Qu&eacute; quiere hacer?</h3>
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="pr-wrap">
+                                                <div class="pass-reset">
+                                                    <label>
+                                                        Enter the email you signed up with</label>
+                                                    <input type="email" placeholder="Email" />
+                                                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                                                </div>
+                                            </div>
+                                            <div class="wrap">
+
+
+
+                                                <h:form class="login">
+                                                    <h:commandButton value="Ir a mi p&aacute;gina" class="btn btn-success btn-sm" action="#{controlAutorizacion.home()}"  />
+                                                    <h:commandButton value="Cerrar sesion" class="btn btn-success btn-sm" action="#{controlAutorizacion.logout()}" />
+                                                    <div class="remember-forgot">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="checkbox">
+
+                                                                </div>
+                                                            </div>
+                                                            <!--div class="col-md-6 forgot-pass-content">
+                                                                <a href="javascription:void(0)" class="forgot-pass">Olvide mi contrase&ntilde;a</a>
+                                                            </div-->
+                                                        </div>
+                                                    </div>
+                                                </h:form>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </hr>
+                </div>
+
+
+                <!-- /.container -->
+
+
+
+
+                <!-- /.intro-header -->
+
+                <!-- Page Content -->
+
+
+
+                <!-- jQuery -->
+                <script src="js/jquery.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
+
+            </h:body>
+        </c:otherwise>
+    </c:choose>
 </html>
 

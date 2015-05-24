@@ -176,7 +176,7 @@ public class demandas {
         }
     }
 
-    public int numeroDemandas(Tecnico tec) {
+    public int numDemandas(Tecnico tec) {
         if (tec.getDemanda() == null) {
             return 0;
         }
